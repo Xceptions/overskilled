@@ -1,60 +1,79 @@
 <template>
   <div class="competitions">
-    <h2>Competitions</h2>
+    <div class='competition_header'>
+        <h2><b>Competitions</b></h2>
+        <p>
+            <router-link to="/howto">Learn how to get and approach competitions here</router-link>
+        </p>
+    </div>
     <div id="">
         <div v-for="(item, idx) in competitions" :key="item.comp" class="item_card">
-            <img alt="Vue logo" src="../assets/logo.png" id="comp_img">
-            <div>
-                <h3>Platform: {{ item.comp }}</h3>
-                <h3>Title: {{ item.title }}</h3>
-                <h3>Focus: {{ item.focus_area }}</h3>
-                <h3>Prize: {{ item.prize }}</h3>
-                <button>Apply</button>
-            </div>
+            <b-row>
+                <b-col id='a'>
+                    <img alt="Vue logo" src="../assets/company-5.png" id="comp_img">
+                </b-col>
+                <b-col id='b' cols="5">
+                    <div id='item_comp'>{{ item.title }}</div>
+                    <div>{{ item.focus_area }}</div>
+                </b-col>
+                <b-col id='c'>
+                    <div>{{ item.comp }}</div>
+                    <div><b-badge>{{ item.length }}</b-badge></div><!-- / Fixed-->
+                </b-col>
+                <b-col cols="4">
+                    <span>{{ item.start }}</span> - <span>{{ item.end }}</span>
+                </b-col>
+                <!-- <b-col></b-col>
+                <b-col></b-col> -->
+            </b-row>
         </div>
     </div>
-    <div>here</div>
   </div>
 </template>
 
-
 <script>
+// eslint-disable-next-line no-unused-vars
 export default {
-    name: 'Competitions',
-    data() {
-        return {
-            competitions: [
-                {'comp': "Kaggle", 'focus_area': "computer vision, NLP, regression",  'title': "Titanic Competition", 'prize': "$25,000"},
-                {'comp': "Kaggle", 'focus_area': "computer vision, NLP, regression",  'title': "Titanic Competition", 'prize': "$25,000"},
-                {'comp': "Kaggle", 'focus_area': "computer vision, NLP, regression",  'title': "Titanic Competition", 'prize': "$25,000"},
-                {'comp': "Kaggle", 'focus_area': "computer vision, NLP, regression",  'title': "Titanic Competition", 'prize': "$25,000"},
-                {'comp': "Kaggle", 'focus_area': "computer vision, NLP, regression",  'title': "Titanic Competition", 'prize': "$25,000"},
-                {'comp': "Kaggle", 'focus_area': "computer vision, NLP, regression",  'title': "Titanic Competition", 'prize': "$25,000"}
-            ]
-        }
+  name: 'competitions',
+  data () {
+    return {
+      competitions: [
+        { comp: 'Kaggle', focus_area: 'computer vision, NLP, regression', title: 'Titanic Competition', prize: '$25,000', start: 'Jan 17, 2020', end: 'Mar 25, 2020' },
+        { comp: 'Kaggle', focus_area: 'computer vision, NLP, regression', title: 'Titanic Competition', prize: '$25,000', start: 'Jan 17, 2020', end: 'Mar 25, 2020' },
+        { comp: 'Kaggle', focus_area: 'computer vision, NLP, regression', title: 'Titanic Competition', prize: '$25,000', start: 'Jan 17, 2020', end: 'Mar 25, 2020' },
+        { comp: 'Kaggle', focus_area: 'computer vision, NLP, regression', title: 'Titanic Competition', prize: '$25,000', start: 'Jan 17, 2020', end: 'Mar 25, 2020' },
+        { comp: 'Kaggle', focus_area: 'computer vision, NLP, regression', title: 'Titanic Competition', prize: '$25,000', start: 'Jan 17, 2020', end: 'Mar 25, 2020' },
+        { comp: 'Kaggle', focus_area: 'computer vision, NLP, regression', title: 'Titanic Competition', prize: '$25,000', start: 'Jan 17, 2020', end: 'Mar 25, 2020' }
+      ]
     }
+  }
 }
 </script>
 
 <style scoped lang="scss">
+
+.competition_header {
+    padding-top: 30px;
+    padding-bottom: 5px;
+}
+
 .item_card {
-    box-shadow: rgba(250, 250, 250, 0.7);
-    width: 60%;
-    background-color: #fff;
+    border-top: 1px solid #ededed;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    // justify-content: center;
-    
+    align-items: center;
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
-#comp_img {
-    width: 20%;
-    height: 20%;
+.item_card:hover {
+    box-shadow: 0px 0px 20px 10px rgba(230, 230, 230, 0.7);
 }
 
+#item_comp {
+    font-size: 23px;
+    font-weight: bold;
+}
 </style>

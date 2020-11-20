@@ -1,32 +1,49 @@
 <template>
-  <div class="app_header">
-    <div class='app_header_tops'>
-      <div id="app_name">OverSkilled</div>
-      <ul id="app_nav">
-        <li><router-link to="/home">Home</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
-        <li><router-link to="/post">Post</router-link></li>
-        <li><router-link to="/howto">How-To</router-link></li>
-      </ul>
+  <div id="app">
+    <div class="app_header" sticky>
+      <b-navbar toggleable="lg" sticky>
+        <b-navbar-brand href="#" id="logo"><h2>OverSkilled</h2></b-navbar-brand>
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+        <b-collapse id="nav-collapse" is-nav>
+
+          <!-- Right aligned nav items -->
+          <b-navbar-nav class="ml-auto">
+            <b-nav-item :active="tab === 1" @click="tab = 1">
+              <router-link to="/home" class="header_links">Home</router-link>
+            </b-nav-item>
+            <b-nav-item :active="tab === 2" @click="tab = 2">
+              <router-link to="/about" class="header_links">About</router-link>
+            </b-nav-item>
+            <!-- <b-nav-item :active="tab === 3" @click="tab = 3">
+              <router-link to="/post" class="header_links">Post</router-link>
+            </b-nav-item> -->
+            <b-nav-item :active="tab === 4" @click="tab = 4">
+              <router-link to="/howto" class="header_links">How-To</router-link>
+            </b-nav-item>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
+      <div class='app_header_content'>
+        <span id="app_header_content_text">Make Money with Your Tech Skills</span>
+      </div>
     </div>
-    <b-container class="bv-example-row">
-      <b-row>
-        <b-col>1 of 3</b-col>
-        <b-col>2 of 3</b-col>
-        <b-col>3 of 3</b-col>
-      </b-row>
-    </b-container>
-    <div class='app_header_content'>
-      <div class="app_header_content_writeup">Make Money With Your Tech Skills</div>
-      <div>Search box</div>
+
+    <router-view/>
+
+    <div class="app_footer">
+      <div>Questions, Complaints, Enquiries</div>
+      <b-form>
+        <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
+      </b-form>
     </div>
   </div>
-  <router-view/>
 </template>
 
 <style lang="scss">
-// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
-$theme : #42b983;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+// $theme : rgba(89, 99, 94, 0.8);
+$theme: rgba(230, 230, 230, 1);
+// $theme: #fff;
 
 body, html {
   margin: 0;
@@ -34,31 +51,38 @@ body, html {
 //     font-family: 'Open Sans', sans-serif;
 }
 
-.app_header {
-  background-color: $theme;
-  padding: 10px;
+div {
+  display: block;
 }
 
+.app_header {
+  background-color: $theme;
+  margin: 0;
+}
+
+#logo {
+  color: #7209b7;
+}
 
 #app {
-  // font-family: 'Open Sans', sans-serif;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Open Sans', sans-serif;
+  // font-family: Avenir, Helvetica, Arial, sans-serif;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  background-color: rgba(250, 250, 250, 0.7)
+  // color: #2c3e50;
+  // background-color: #fff;
 }
 
 .app_header_tops {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: left;
 }
 
 #app_name {
   font-size: 32px;
-  color: #fff;
+  color: #aaa;
   font-weight: bold;
 }
 
@@ -79,10 +103,30 @@ body, html {
   }
 }
 
-.app_header_content_writeup {
-  margin-top: 20px;
-  font-size: 30px;
-  font-weight: bold;
+.app_header_content {
+  padding-top: 10%;
+  padding-bottom: 10%;
+  color: #7209b7;
+}
+
+#app_header_content_text {
+  font-size: 60px;
+}
+
+.header_links {
   color: #fff;
+}
+
+.job-search-wrap {
+    position: relative;
+    // max-width: 1000px;
+    margin-left: 75px;
+    margin-right: 75px;
+    margin-top: -40px;
+    margin-bottom: 5px;
+    padding: 30px;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
 }
 </style>

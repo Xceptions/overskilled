@@ -1,4 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Post from '../views/Post.vue'
 import HowTo from '../views/HowTo.vue'
@@ -6,6 +7,8 @@ import Competitions from '../components/Competitions.vue'
 import Talks from '../components/Talks.vue'
 import Projects from '../components/Projects.vue'
 import Jobs from '../components/Jobs.vue'
+
+Vue.use(VueRouter)
 
 const routes = [
   {
@@ -17,10 +20,10 @@ const routes = [
     name: 'Home',
     component: Home,
     children: [
-      {path: '', component: Projects},
-      {path: 'competitions', component: Competitions},
-      {path: 'talks', component: Talks},
-      {path: 'jobs', component: Jobs}
+      { path: '', component: Projects },
+      { path: 'competitions', component: Competitions },
+      { path: 'talks', component: Talks },
+      { path: 'jobs', component: Jobs }
     ]
   },
   {
@@ -41,10 +44,10 @@ const routes = [
     name: 'HowTo',
     component: HowTo,
     children: [
-      {path: '', component: Projects},
-      {path: 'competitions', component: Competitions},
-      {path: 'talks', component: Talks},
-      {path: 'jobs', component: Jobs}
+      { path: '', component: Projects },
+      { path: 'competitions', component: Competitions },
+      { path: 'talks', component: Talks },
+      { path: 'jobs', component: Jobs }
     ]
   },
   {
@@ -54,8 +57,9 @@ const routes = [
   }
 ]
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 
