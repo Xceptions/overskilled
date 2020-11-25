@@ -31,13 +31,33 @@
     <router-view/>
 
     <div class="app_footer">
+      <h1>Contact Us</h1>
       <div>Questions, Complaints, Enquiries</div>
-      <b-form>
-        <b-form-input v-model="text" placeholder="Enter your name"></b-form-input>
+      <b-form class="b-form">
+        <b-form-group id="input-group-1">
+          <b-form-input v-model="text" placeholder="Email Address"></b-form-input>
+          <br>
+          <b-form-textarea placeholder="Tell us!"></b-form-textarea>
+        </b-form-group>
       </b-form>
+      <p>
+        <b>OverSkilled</b> was built by Kene Agbo, for the community
+        <p> Copyright {{ currentDate.getFullYear() }}
+      </p>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'App',
+  data () {
+    return {
+      currentDate: new Date()
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
@@ -117,16 +137,14 @@ div {
   color: #fff;
 }
 
-.job-search-wrap {
-    position: relative;
-    // max-width: 1000px;
-    margin-left: 75px;
-    margin-right: 75px;
-    margin-top: -40px;
-    margin-bottom: 5px;
-    padding: 30px;
-    background-color: #FFFFFF;
-    -webkit-box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+.app_footer {
+  height: 100px;
+  background-color: #ddd;
+}
+
+.b-form {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
