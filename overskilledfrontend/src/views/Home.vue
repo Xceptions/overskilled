@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <!-- <Header msg="get more from us"/> -->
     <div id="home_nav">
       <b-icon-arrow-up></b-icon-arrow-up>
       <router-link to="/home/competitions">Competitions</router-link> |
