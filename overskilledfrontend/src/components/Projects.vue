@@ -29,7 +29,6 @@
             </b-row>
         </div>
     </div>
-    <div>here</div>
   </div>
 </template>
 

@@ -14,9 +14,9 @@
             <b-nav-item :active="tab === 2" @click="tab = 2">
               <router-link to="/about" class="header_links">About</router-link>
             </b-nav-item>
-            <!-- <b-nav-item :active="tab === 3" @click="tab = 3">
+            <b-nav-item :active="tab === 3" @click="tab = 3">
               <router-link to="/post" class="header_links">Post</router-link>
-            </b-nav-item> -->
+            </b-nav-item>
             <b-nav-item :active="tab === 4" @click="tab = 4">
               <router-link to="/howto" class="header_links">How-To</router-link>
             </b-nav-item>
