@@ -26,7 +26,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 $theme: #7209b7;
+
 #home_nav {
   background-color: $theme;
   border: 1px solid $theme;
@@ -34,6 +36,7 @@ $theme: #7209b7;
   line-height: 50px;
   vertical-align: middle;
   color: #fff;
+  text-align: center;
 }
 
 a {

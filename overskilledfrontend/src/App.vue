@@ -89,7 +89,7 @@ div {
   // font-family: Avenir, Helvetica, Arial, sans-serif;
   // -webkit-font-smoothing: antialiased;
   // -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   // color: #2c3e50;
   // background-color: #fff;
 }
@@ -127,6 +127,7 @@ div {
   padding-top: 10%;
   padding-bottom: 10%;
   color: #7209b7;
+  text-align: center;
 }
 
 #app_header_content_text {
@@ -135,11 +136,13 @@ div {
 
 .header_links {
   color: #fff;
+  text-align: center;
 }
 
 .app_footer {
   height: 100px;
   background-color: #ddd;
+  text-align: center;
 }
 
 .b-form {

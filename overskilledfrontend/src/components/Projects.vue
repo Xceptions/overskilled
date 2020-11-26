@@ -56,6 +56,7 @@ export default {
 .project_header {
     padding-top: 30px;
     padding-bottom: 5px;
+    text-align: center;
 }
 
 .item_card {

@@ -5,16 +5,35 @@
       <hr/>
       <b-form class="b-form">
         <b-form-group id="input-group-1">
-          Name
-          <b-form-input v-model="text" placeholder="Email Address"></b-form-input>
+          <label>Title</label>
+          <b-form-input v-model="text"></b-form-input>
           <br>
-          <b-form-textarea placeholder="Tell us!"></b-form-textarea>
+          <label>Description</label>
+          <b-form-textarea></b-form-textarea>
+          <br>
+          <label>Amount</label>
+          <b-form-input></b-form-input>
         </b-form-group>
+        <b-button variant="success">Submit</b-button>
       </b-form>
     </div>
     <br/>
     <div class='post-body'>
       <b>Post a Job</b>
+      <hr/>
+      <b-form class="b-form">
+        <b-form-group id="input-group-1">
+          <label>Title</label>
+          <b-form-input v-model="text"></b-form-input>
+          <br>
+          <label>Location</label>
+          <b-form-input></b-form-input>
+          <br>
+          <label>Amount</label>
+          <b-form-input></b-form-input>
+        </b-form-group>
+        <b-button variant="success">Submit</b-button>
+      </b-form>
     </div>
   </div>
 </template>
@@ -30,5 +49,14 @@
   max-width: 850px;
   margin-left: auto;
   margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
+
+/* label {
+  align-content: left;
+} */
 </style>

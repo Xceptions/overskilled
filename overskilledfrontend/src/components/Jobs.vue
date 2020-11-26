@@ -14,11 +14,11 @@
                 </b-col>
                 <b-col id='b' cols="5">
                     <div id='item_job'>{{ item.title }}</div>
-                    <div>{{ item.focus_area }}</div>
+                    <div>{{ item.location }}</div>
                 </b-col>
                 <b-col id='c'>
                     <div>{{ item.job }}</div>
-                    <div><b-badge>{{ item.focus_area }}</b-badge></div><!-- / Fixed-->
+                    <div><b-badge>{{ item.salary }}</b-badge></div><!-- / Fixed-->
                     <div>{{ item.salary }}</div>
                 </b-col>
                 <!-- <b-col></b-col>
@@ -36,11 +36,11 @@ export default {
   data () {
     return {
       jobs: [
-        { title: 'Python Developer', focus_area: 'Backend Engineer', salary: '$25,000' },
-        { title: 'Python Developer', focus_area: 'Backend Engineer', salary: '$25,000' },
-        { title: 'Python Developer', focus_area: 'Backend Engineer', salary: '$25,000' },
-        { title: 'Python Developer', focus_area: 'Backend Engineer', salary: '$25,000' },
-        { title: 'Python Developer', focus_area: 'Backend Engineer', salary: '$25,000' }
+        { title: 'Python Developer', location: 'Anywhere', salary: '$25,000' },
+        { title: 'Python Developer', location: 'America', salary: '$25,000' },
+        { title: 'Python Developer', location: 'Anywhere', salary: '$25,000' },
+        { title: 'Python Developer', location: 'EMEA', salary: '$25,000' },
+        { title: 'Python Developer', location: 'Anywhere', salary: '$25,000' }
       ]
     }
   }
@@ -49,9 +49,10 @@ export default {
 
 <style scoped lang="scss">
 
-.jobetition_header {
+.job_header {
     padding-top: 30px;
     padding-bottom: 5px;
+    text-align: center;
 }
 
 .item_card {
