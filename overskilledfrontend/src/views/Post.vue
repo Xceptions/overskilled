@@ -13,6 +13,9 @@
           <br>
           <label>Amount</label>
           <b-form-input></b-form-input>
+          <br>
+          <label>Image</label>
+          <b-form-file v-model="file1" @change="onFileSelected"></b-form-file>
         </b-form-group>
         <b-button variant="success">Submit</b-button>
       </b-form>
@@ -37,6 +40,17 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Post',
+  methods: {
+    onFileSelected (e) {
+      console.log(e)
+    }
+  }
+}
+</script>
 
 <style scoped>
 .post {
