@@ -1,5 +1,5 @@
 """
-WSGI config for TalentCoinBackend project.
+WSGI config for overskilledbackend project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TalentCoinBackend.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'overskilledbackend.settings')
 
 application = get_wsgi_application()

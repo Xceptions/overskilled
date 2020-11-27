@@ -1,5 +1,5 @@
 """
-ASGI config for TalentCoinBackend project.
+ASGI config for overskilledbackend project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TalentCoinBackend.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'overskilledbackend.settings')
 
 application = get_asgi_application()
