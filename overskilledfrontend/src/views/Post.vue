@@ -17,7 +17,7 @@
           <label>Image</label>
           <b-form-file v-model="file1" @change="onFileSelected"></b-form-file>
         </b-form-group>
-        <b-button variant="success">Submit</b-button>
+        <b-button variant="success" @click="onUpload">Submit</b-button>
       </b-form>
     </div>
     <br/>
@@ -42,13 +42,33 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'Post',
-  methods: {
-    onFileSelected (e) {
-      console.log(e)
+  data () {
+    return {
+      selectedFile: null
     }
   }
+  // methods: {
+  //   onFileSelected (e) {
+  //     this.selectedFile = event.target.files[0]
+  //   },
+  //   onUpload () {
+  //     const fd = new FormData();
+  //     fd.append('image', this.selectedFile, this.selectedFile.name)
+  //     axios.post('http://127.0.0.1:8000/', fd, {
+  //       // third argument can be used to show upload
+  //       onUploadProgress: uploadEvent => {
+  //         console.log('Upload Progress: ' + Math.round(uploadEvent.loaded * 100/ uploadEvent.total))
+  //       }
+  //     })
+  //     .then(res => {
+  //       // get response to know if it worked
+  //       console.log(res)
+  //     })
+  //   }
+  // }
 }
 </script>
 
