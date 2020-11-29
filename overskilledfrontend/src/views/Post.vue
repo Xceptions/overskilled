@@ -12,7 +12,7 @@
           <b-form-textarea></b-form-textarea>
           <br>
           <label>Amount</label>
-          <b-form-input></b-form-input>
+          <b-form-input v-model="text"></b-form-input>
           <br>
           <label>Image</label>
           <b-form-file v-model="file1" @change="onFileSelected"></b-form-file>
@@ -42,7 +42,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
   name: 'Post',
   data () {

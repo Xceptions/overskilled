@@ -1,3 +1,4 @@
+<!--
 <template>
   <div class="talks">
     <h1>Talks</h1>
@@ -11,7 +12,6 @@
     <div>here</div>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -30,3 +30,4 @@ export default {
     }
 }
 </script>
+-->
