@@ -6,3 +6,14 @@ class About(models.Model):
 
     def __str__(self):
         return self.the_short
+
+class HowTo(models.Model):
+    ace_comp = models.TextField()
+    ace_comp_res = models.TextField()
+    get_proj = models.TextField()
+    get_proj_res = models.TextField()
+    get_jobs = models.TextField()
+    get_jobs_res = models.TextField()
+
+    def __str__(self):
+        return self.ace_comp

@@ -5,6 +5,7 @@ from OverSkilledApp import views
 
 router = routers.DefaultRouter()
 router.register(r'about', views.AboutViewSet)
+router.register(r'howto', views.HowToViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
