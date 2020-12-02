@@ -23,11 +23,15 @@ class Project(models.Model):
         ('negotiable', 'NEGOTIABLE'),
         ('fixed', 'FIXED')
     )
-    project_header = models.CharField(max_length=200)
+    project_header = models.CharField(max_length=200, default='Project for a Techie')
     project_body = models.TextField()
-    amount = models.CharField(max_length=100)
-    bargain = models.CharField(choices=BARGAIN_CHOICES, default='negotiable')
+    amount = models.CharField(max_length=100, default='100')
+    bargain = models.CharField(max_length=20, choices=BARGAIN_CHOICES, default='negotiable')
     location = models.TextField()
+    contact_me = models.TextField()
+
+    def __str__(self):
+        return self.project_header
 
 # class Jobs(models.Model):
 #     BARGAIN_CHOICES = (

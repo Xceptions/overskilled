@@ -10,5 +10,6 @@ router.register(r'howto', views.HowToViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('viewprojects/', views.ProjectView.as_view()),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

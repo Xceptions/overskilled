@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import About, HowTo
+from .models import About, HowTo, Project
 
-admin.site.register(About)
-admin.site.register(HowTo)
+
+for obj in [About, HowTo, Project]:
+    admin.site.register(obj)
