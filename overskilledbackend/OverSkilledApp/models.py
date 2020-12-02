@@ -17,3 +17,26 @@ class HowTo(models.Model):
 
     def __str__(self):
         return self.ace_comp
+
+class Project(models.Model):
+    BARGAIN_CHOICES = (
+        ('negotiable', 'NEGOTIABLE'),
+        ('fixed', 'FIXED')
+    )
+    project_header = models.CharField(max_length=200)
+    project_body = models.TextField()
+    amount = models.CharField(max_length=100)
+    bargain = models.CharField(choices=BARGAIN_CHOICES, default='negotiable')
+    location = models.TextField()
+
+# class Jobs(models.Model):
+#     BARGAIN_CHOICES = (
+#         ('negotiable', 'NEGOTIABLE'),
+#         ('fixed', 'FIXED')
+#     )
+#     project_header = models.CharField(max_length=200)
+#     project_body = models.TextField()
+#     amount = models.CharField(max_length=100)
+#     bargain = models.CharField(choices=BARGAIN_CHOICES, default='negotiable')
+#     location = models.TextField()
+#     image = 
