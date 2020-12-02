@@ -1,5 +1,5 @@
 <template>
-  <div class="howto">
+  <!-- <div class="howto">
     <h3> Ace Competitions </h3>
     <p class='story'> {{ competitions_story }} </p>
     <b>Helpful Resources</b>
@@ -21,6 +21,25 @@
       <a href= item>{{ item }}</a>
     </p>
     <br>
+  </div> -->
+  <div class="howto">
+    <div v-for = "howto in howtos" :key="howto.ace_comp">
+      <h3> Ace Competitions </h3>
+      <p class='story'>{{ howto['ace_comp'] }}</p>
+      <h3> Helpful Resources </h3>
+      <p class='story'>{{ howto['ace_comp_res'] }}</p>
+      <br>
+      <h3> Get Projects </h3>
+      <p class='story'>{{ howto['get_proj'] }}</p>
+      <h3> Helpful Resources </h3>
+      <p class='story'>{{ howto['get_proj_res'] }}</p>
+      <br>
+      <h3> Get Jobs </h3>
+      <p class='story'>{{ howto['get_job'] }}</p>
+      <h3> Helpful Resources </h3>
+      <p class='story'>{{ howto['get_job_res'] }}</p>
+      <br>
+    </div>
   </div>
 </template>
 
@@ -36,6 +55,14 @@ export default {
       projects_links: ['www.sawa.com', 'www.adfaodj.com', 'www.afoihfaoj.com'],
       jobs_links: ['www.sawa.com', 'www.adfaodj.com', 'www.afoihfaoj.com']
     }
+  },
+  computed: {
+    howtos () {
+      return this.$store.state.howtos
+    }
+  },
+  mounted () {
+    this.$store.dispatch('getHowTos')
   }
 }
 </script>

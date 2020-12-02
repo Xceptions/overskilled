@@ -7,22 +7,23 @@
         </p>
     </div>
     <div id="">
-        <div v-for="(item, idx) in projects" :key="item.proj" class="item_card">
+        <div v-for="item in projects" :key="item.project_header" class="item_card">
             <b-row>
-                <b-col id='a'>
-                    <img alt="Vue logo" src="../assets/company-1.png" id="proj_img">
+                <b-col class='proj_img'>
+                    <!-- <img alt="Vue logo" src="../assets/company-1.png" id="proj_img"> -->
+                    {{ item.project_header.charAt(0) }}
                 </b-col>
                 <b-col id='b' cols="5">
                     <!-- <div>{{ idx }}</div> -->
-                    <div id='item_proj'>{{ item.proj }}</div>
-                    <div>{{ item.description }}</div>
+                    <div id='item_proj'>{{ item.project_header }}</div>
+                    <div>{{ item.project_body }}</div>
                 </b-col>
                 <b-col id='c'>
                     <div>{{ item.amount }}</div>
-                    <div><b-badge variant="primary">Negotiable</b-badge></div><!-- / Fixed-->
+                    <div><b-badge variant="primary">{{ item.bargain }}</b-badge></div><!-- / Fixed-->
                 </b-col>
                 <b-col>
-                    <div>Anywhere</div>
+                    <div>{{ item.location }}</div>
                 </b-col>
                 <b-col></b-col>
                 <b-col></b-col>
@@ -36,17 +37,19 @@
 // eslint-disable-next-line no-unused-vars
 export default {
   name: 'Projects',
-  data () {
-    return {
-      projects: [
-        { proj: 'Build my assignment', description: 'fjaodjfadjfaof', amount: '$1000' },
-        { proj: 'Build my assignment', description: 'fjaodjfadjfaof', amount: '$1000' },
-        { proj: 'Build my assignment', description: 'fjaodjfadjfaof', amount: '$1000' },
-        { proj: 'Build my assignment', description: 'fjaodjfadjfaof', amount: '$1000' },
-        { proj: 'Build my assignment', description: 'fjaodjfadjfaof', amount: '$1000' },
-        { proj: 'Build my assignment', description: 'fjaodjfadjfaof', amount: '$1000' }
-      ]
+//   data () {
+//     return {
+//       projts: []
+//     }
+//   },
+  computed: {
+    projects () {
+      return this.$store.state.projects
     }
+  },
+  mounted () {
+    this.$store.dispatch('getProjects')
+    // alert(this.$store.state.projects)
   }
 }
 </script>
@@ -83,6 +86,11 @@ export default {
     font-weight: bold;
 }
 
+.proj_img {
+    height: 100%;
+    width: 100;
+    color: red;
+}
 // #b {
 //     background-color: green;
 // }

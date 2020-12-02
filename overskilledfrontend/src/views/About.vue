@@ -1,9 +1,11 @@
 <template>
   <div class="about">
-    <h3> The Short. </h3>
-    <p class='story'> {{ short }} </p>
-    <h3> The Long. </h3>
-    <p class='story'> {{ long }} </p>
+    <div v-for = "about in abouts" :key="about.short">
+      <h3> The Short. </h3>
+      <p class='story'>{{ about['the_short'] }}</p>
+      <h3> The Long. </h3>
+      <p class='story'>{{ about['the_long'] }}</p>
+    </div>
   </div>
 </template>
 
@@ -12,9 +14,17 @@ export default {
   name: 'About',
   data () {
     return {
-      short: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      long: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
+      short: 'Default Short. Data is not coming from the db',
+      long: 'Default Long. Data is not coming from the db'
     }
+  },
+  computed: {
+    abouts () {
+      return this.$store.state.abouts
+    }
+  },
+  mounted () {
+    this.$store.dispatch('getAbouts')
   }
 }
 </script>

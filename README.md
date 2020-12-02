@@ -1,2 +1,1 @@
-my app baby
-new new app
+overskilled app built by me, for the community
