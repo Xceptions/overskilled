@@ -24,9 +24,11 @@
                 </b-col>
                 <b-col>
                     <div>{{ item.location }}</div>
+                    <!-- <a :href="item.contact">{{ item.contact_me }}</a> -->
+                    <b-button :href="item.contact_me" variant='primary'> Apply </b-button>
                 </b-col>
                 <b-col></b-col>
-                <b-col></b-col>
+                <!-- <b-col></b-col> -->
             </b-row>
         </div>
     </div>
@@ -37,11 +39,6 @@
 // eslint-disable-next-line no-unused-vars
 export default {
   name: 'Projects',
-//   data () {
-//     return {
-//       projts: []
-//     }
-//   },
   computed: {
     projects () {
       return this.$store.state.projects

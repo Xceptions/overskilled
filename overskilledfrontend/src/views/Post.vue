@@ -5,13 +5,19 @@
       <hr/>
       <b-form class="b-form">
         <b-form-group id="input-group-1">
-          <label>Title</label>
+          <label>Header</label>
           <b-form-input v-model="text"></b-form-input>
           <br>
           <label>Description</label>
           <b-form-textarea></b-form-textarea>
           <br>
           <label>Amount</label>
+          <b-form-input v-model="text"></b-form-input>
+          <br>
+          <label>Location</label>
+          <b-form-input v-model="text"></b-form-input>
+          <br>
+          <label>Contact Mail</label>
           <b-form-input v-model="text"></b-form-input>
           <br>
           <label>Image</label>

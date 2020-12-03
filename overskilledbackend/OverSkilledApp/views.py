@@ -18,3 +18,6 @@ class ProjectView(views.APIView):
         query = Project.objects.all()
         serializer = ProjectSerializer(query, many=True)
         return Response(serializer.data)
+
+    def post(self, request):
+        pass
