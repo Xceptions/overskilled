@@ -12,10 +12,7 @@ class HowToSerializer(serializers.HyperlinkedModelSerializer):
         model = HowTo
         fields = '__all__'
 
-class ProjectSerializer(serializers.Serializer):
-    project_header = serializers.CharField()
-    project_body = serializers.CharField()
-    amount = serializers.CharField()
-    bargain = serializers.CharField()
-    location = serializers.CharField()
-    contact_me = serializers.CharField()
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = '__all__'

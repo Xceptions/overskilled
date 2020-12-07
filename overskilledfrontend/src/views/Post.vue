@@ -5,19 +5,19 @@
       <hr/>
       <b-form v-on:submit.prevent="postProject" class="b-form">
         <b-form-group label="Header">
-          <b-form-input v-model="form.header"></b-form-input>
+          <b-form-input v-model="form.project_header"></b-form-input>
         </b-form-group>
         <br>
         <b-form-group label='Description'>
-          <b-form-textarea v-model="form.description"></b-form-textarea>
+          <b-form-textarea v-model="form.project_body"></b-form-textarea>
         </b-form-group>
         <br>
         <b-form-group label="Amount">
           <b-form-input v-model="form.amount"></b-form-input>
         </b-form-group>
         <b-form-group>
-          <b-form-radio v-model="form.bargain" name="some-radios" value="A">Negotiable</b-form-radio>
-          <b-form-radio v-model="form.bargain" name="some-radios" value="B">Fixed</b-form-radio>
+          <b-form-radio v-model="form.bargain" name="some-radios" value="negotiable">Negotiable</b-form-radio>
+          <b-form-radio v-model="form.bargain" name="some-radios" value="fixed">Fixed</b-form-radio>
         </b-form-group>
         <br>
         <b-form-group label="Location">
@@ -25,7 +25,7 @@
         </b-form-group>
         <br>
         <b-form-group label='Contact Mail'>
-          <b-form-input v-model="form.contact"></b-form-input>
+          <b-form-input v-model="form.contact_me"></b-form-input>
         </b-form-group>
         <b-button type='submit' variant="success">Post Project</b-button>
       </b-form>
@@ -72,24 +72,25 @@ export default {
     return {
       selectedFile: null,
       form: {
-        header: '',
-        description: '',
+        project_header: '',
+        project_body: '',
         amount: '',
         bargain: '',
         location: '',
-        contact: ''
+        contact_me: ''
       }
     }
   },
   methods: {
     postProject () {
-      axios.post('127.0.0.1:8000/viewprojects', this.form)
+      axios.post('http://127.0.0.1:8000/viewprojects', this.form)
         .then((res) => {
+          alert('done')
           alert(res)
         })
         .catch((err) => {
           alert(err)
-          alert(this.form)
+          alert(JSON.stringify(this.form))
         })
     }
   }

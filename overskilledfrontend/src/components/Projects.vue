@@ -46,7 +46,6 @@ export default {
   },
   mounted () {
     this.$store.dispatch('getProjects')
-    // alert(this.$store.state.projects)
   }
 }
 </script>
