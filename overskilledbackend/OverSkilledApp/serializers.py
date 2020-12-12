@@ -1,4 +1,4 @@
-from .models import About, HowTo, Project
+from .models import About, HowTo, Project, Jobs
 from rest_framework import serializers
 
 
@@ -15,4 +15,9 @@ class HowToSerializer(serializers.HyperlinkedModelSerializer):
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
+        fields = '__all__'
+
+class JobSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Jobs
         fields = '__all__'

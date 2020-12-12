@@ -1,6 +1,6 @@
-from .models import About, HowTo, Project
+from .models import About, HowTo, Project, Jobs
 from rest_framework import viewsets, views, status
-from .serializers import AboutSerializer, HowToSerializer, ProjectSerializer
+from .serializers import AboutSerializer, HowToSerializer, ProjectSerializer, JobSerializer
 from rest_framework.response import Response
 from django.http import Http404
 
@@ -26,3 +26,9 @@ class ProjectView(views.APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class JobView(views.APIView):
+    def get(self, request, format=None):
+        query = Jobs.objects.all()
+        serializer = JobSerializer(query, many=True)
+        return Response(serializer.data)
