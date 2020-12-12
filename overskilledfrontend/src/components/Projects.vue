@@ -3,20 +3,23 @@
     <div class='project_header'>
         <h2>Projects</h2>
         <p>
-            <router-link to="/howto">Learn how to get and approach projects here</router-link>
+          <router-link to="/howto">Learn how to get and approach projects here</router-link>
         </p>
     </div>
     <div id="">
         <div v-for="item in projects" :key="item.project_header" class="item_card">
+            <div @click="viewprojectdetails(item.id)">
             <b-row>
                 <b-col class='proj_img'>
-                    <!-- <img alt="Vue logo" src="../assets/company-1.png" id="proj_img"> -->
-                    {{ item.project_header.charAt(0) }}
+                    <!-- {{ item.project_header.charAt(0) }} -->
+                    <svg height="100" width="100">
+                      <circle cx="50" cy="50" r="40" stroke-width="3" stroke="red" fill="red" />
+                    </svg>
                 </b-col>
                 <b-col id='b' cols="5">
                     <!-- <div>{{ idx }}</div> -->
                     <div id='item_proj'>{{ item.project_header }}</div>
-                    <div>{{ item.project_body }}</div>
+                    <div>{{ item.project_body.slice(0, 100) }}... <span>view more</span></div>
                 </b-col>
                 <b-col id='c'>
                     <div>{{ item.amount }}</div>
@@ -24,12 +27,11 @@
                 </b-col>
                 <b-col>
                     <div>{{ item.location }}</div>
-                    <!-- <a :href="item.contact">{{ item.contact_me }}</a> -->
-                    <b-button :href="item.contact_me" variant='primary'> Apply </b-button>
+                    <div>{{ new Date(item.date).toDateString() }}</div>
                 </b-col>
                 <b-col></b-col>
-                <!-- <b-col></b-col> -->
             </b-row>
+            </div>
         </div>
     </div>
   </div>
@@ -46,12 +48,17 @@ export default {
   },
   mounted () {
     this.$store.dispatch('getProjects')
+  },
+  methods: {
+    viewprojectdetails (projectId) {
+      this.$router.push({ path: 'projectdetails', query: { projectId: projectId } })
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
-
+$theme : rgb(25, 10, 167);
 .project_header {
     padding-top: 30px;
     padding-bottom: 5px;
@@ -61,6 +68,7 @@ export default {
 .item_card {
     border-top: 1px solid #ededed;
     width: 80%;
+    // height: 40px;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
@@ -73,19 +81,23 @@ export default {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
 }
 
-// #a {
-//     background-color: blue;
-// }
-
 #item_proj {
     font-size: 23px;
     font-weight: bold;
 }
 
-.proj_img {
-    height: 100%;
-    width: 100;
-    color: red;
+// .proj_img {
+//     font-size: 25.5vw;
+//     color: red;
+//     background-color: $theme;
+//     text-align: center;
+// }
+
+svg {
+    // width: 100%;
+    // background-color: $theme;
+    text-align: center;
+    margin-left: 5px;
 }
 // #b {
 //     background-color: green;

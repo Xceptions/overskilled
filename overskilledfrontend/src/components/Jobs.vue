@@ -7,19 +7,19 @@
         </p>
     </div>
     <div id="">
-        <div v-for="(item, idx) in jobs" :key="item.job" class="item_card">
+        <div v-for="item in jobs" :key="item.title" class="item_card">
             <b-row>
-                <b-col id='a'>
-                    <img alt="Vue logo" src="../assets/company-3.png" id="job_img">
-                </b-col>
+                <!-- <b-col id='a'>
+                    <img alt="Vue logo" src="../../../overskilledbackend/media/images/company-5.png" + id="job_img">
+                </b-col> -->
                 <b-col id='b' cols="5">
                     <div id='item_job'>{{ item.title }}</div>
-                    <div>{{ item.location }}</div>
+                    <div>{{ item.company }}</div>
                 </b-col>
                 <b-col id='c'>
-                    <div>{{ item.job }}</div>
-                    <div><b-badge>{{ item.salary }}</b-badge></div><!-- / Fixed-->
-                    <div>{{ item.salary }}</div>
+                    <!-- <div>{{ item.job }}</div> -->
+                    <div><b-badge>{{ item.location }}</b-badge></div><!-- / Fixed-->
+                    <div>{{ new Date(item.date).toDateString() }}</div>
                 </b-col>
                 <!-- <b-col></b-col>
                 <b-col></b-col> -->
@@ -33,16 +33,24 @@
 // eslint-disable-next-line no-unused-vars
 export default {
   name: 'Jobs',
-  data () {
-    return {
-      jobs: [
-        { title: 'Python Developer', location: 'Anywhere', salary: '$25,000' },
-        { title: 'Python Developer', location: 'America', salary: '$25,000' },
-        { title: 'Python Developer', location: 'Anywhere', salary: '$25,000' },
-        { title: 'Python Developer', location: 'EMEA', salary: '$25,000' },
-        { title: 'Python Developer', location: 'Anywhere', salary: '$25,000' }
-      ]
+  // data () {
+  //   return {
+  //     jobs: [
+  //       { title: 'Python Developer', company: 'Google', location: 'Anywhere', date: '25/09/2020' },
+  //       { title: 'Python Developer', company: 'Google', location: 'America', date: '25/09/2020' },
+  //       { title: 'Python Developer', company: 'Google', location: 'Anywhere', date: '25/09/2020' },
+  //       { title: 'Python Developer', company: 'Google', location: 'EMEA', date: '25/09/2020' },
+  //       { title: 'Python Developer', company: 'Google', location: 'Anywhere', date: '25/09/2020' }
+  //     ]
+  //   }
+  // },
+  computed: {
+    jobs () {
+      return this.$store.state.jobs
     }
+  },
+  mounted () {
+    this.$store.dispatch('getJobs')
   }
 }
 </script>

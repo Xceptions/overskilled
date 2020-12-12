@@ -8,7 +8,8 @@ export default new Vuex.Store({
   state: {
     abouts: [],
     howtos: [],
-    projects: []
+    projects: [],
+    projectdetails: []
   },
   mutations: {
     SET_ABOUTS (state, abouts) {
@@ -19,6 +20,9 @@ export default new Vuex.Store({
     },
     SET_PROJECTS (state, projects) {
       state.projects = projects
+    },
+    SET_PROJECTDETAILS (state, projectdetails) {
+      state.projectdetails = projectdetails
     }
   },
   actions: {
@@ -38,6 +42,12 @@ export default new Vuex.Store({
       axios.get('http://127.0.0.1:8000/viewprojects')
         .then(response => {
           commit('SET_PROJECTS', response.data)
+        })
+    },
+    getProjectDetails ({ commit }, payload) {
+      axios.get('http://127.0.0.1:8000/projectdetails/' + payload + '/')
+        .then(response => {
+          commit('SET_PROJECTDETAILS', response.data)
         })
     }
   },

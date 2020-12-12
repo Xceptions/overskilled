@@ -30,36 +30,6 @@
         <b-button type='submit' variant="success">Post Project</b-button>
       </b-form>
     </div>
-    <br/>
-    <div class='post-body'>
-      <b>Post a Job</b>
-      <hr/>
-      <b-form class="b-form">
-        <b-form-group id="input-group-1">
-          <label>Header</label>
-          <b-form-input v-model="form.header"></b-form-input>
-          <br>
-          <label>Description</label>
-          <b-form-textarea v-model="form.description"></b-form-textarea>
-          <br>
-          <label>Amount</label>
-          <b-form-input v-model="form.amount"></b-form-input>
-          <br>
-          <label>Bargain</label>
-          <b-form-input v-model="text"></b-form-input>
-          <br>
-          <label>Location</label>
-          <b-form-input v-model="text"></b-form-input>
-          <br>
-          <label>Contact Mail</label>
-          <b-form-input v-model="text"></b-form-input>
-          <br>
-          <label>Image</label>
-          <b-form-file v-model="file1" @change="onFileSelected"></b-form-file>
-        </b-form-group>
-        <b-button variant="success">Submit</b-button>
-      </b-form>
-    </div>
   </div>
 </template>
 

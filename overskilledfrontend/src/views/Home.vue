@@ -3,9 +3,9 @@
     <div id="home_nav">
       <b-icon-arrow-up></b-icon-arrow-up>
       <router-link to="/home/competitions">Competitions</router-link> |
-      <router-link to="/home">Projects</router-link> |
+      <router-link to="/home">Projects</router-link>
       <!-- <router-link to="/home/talks">Talks</router-link> | -->
-      <router-link to="/home/jobs">Jobs</router-link>
+      <!-- <router-link to="/home/jobs">Jobs</router-link> -->
     </div>
     <router-view/>
   </div>
