@@ -34,12 +34,14 @@ class Project(models.Model):
     def __str__(self):
         return self.project_header
 
-class Jobs(models.Model):
+class Competition(models.Model):
     title = models.CharField(max_length=200)
-    company = models.TextField()
-    location = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='images/')
-    date = models.DateField(auto_now=True)
+    platform = models.CharField(max_length=200)
+    specialization = models.TextField()
+    prize = models.CharField(max_length=100)
+    start = models.DateField()
+    end = models.DateField()
+    url = models.TextField()
 
     def __str__(self):
         return self.title

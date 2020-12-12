@@ -13,7 +13,8 @@ urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('viewprojects', views.ProjectView.as_view()),
-    path('viewjobs', views.JobView.as_view()),
+    path('viewcompetitions', views.CompetitionView.as_view()),
+    path('projectdetails/<project_id>/', views.ProjectDetailsView.as_view()),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 

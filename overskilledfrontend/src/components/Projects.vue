@@ -7,7 +7,7 @@
         </p>
     </div>
     <div id="">
-        <div v-for="item in projects" :key="item.project_header" class="item_card">
+        <div v-for="item in projects" :key="item.id" class="item_card">
             <div @click="viewprojectdetails(item.id)">
             <b-row>
                 <b-col class='proj_img'>
@@ -86,41 +86,8 @@ $theme : rgb(25, 10, 167);
     font-weight: bold;
 }
 
-// .proj_img {
-//     font-size: 25.5vw;
-//     color: red;
-//     background-color: $theme;
-//     text-align: center;
-// }
-
 svg {
-    // width: 100%;
-    // background-color: $theme;
     text-align: center;
     margin-left: 5px;
 }
-// #b {
-//     background-color: green;
-// }
-
-// #c {
-//     background-color: yellow;
-// }
-// .item_card {
-//     box-shadow: 0px 0px 5px 1px rgba(230, 230, 230, 0.7);
-//     width: 60%;
-//     margin-left: auto;
-//     margin-right: auto;
-//     margin-top: 20px;
-//     margin-bottom: 20px;
-//     padding: 20px;
-//     display: flex;
-//     flex-direction: row;
-    // justify-content: center;
-// }
-
-// #proj_img {
-//     width: 100%;
-//     height: 100%;
-// }
 </style>

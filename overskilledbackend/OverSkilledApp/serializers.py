@@ -1,4 +1,4 @@
-from .models import About, HowTo, Project, Jobs
+from .models import About, HowTo, Project, Competition
 from rest_framework import serializers
 
 
@@ -17,7 +17,7 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = '__all__'
 
-class JobSerializer(serializers.ModelSerializer):
+class CompetitionSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Jobs
+        model = Competition
         fields = '__all__'
