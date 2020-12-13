@@ -12,16 +12,8 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-// import Header from '@/components/Header.vue'
-// import Footer from '@/components/Footer.vue'
-
 export default {
   name: 'Home'
-  // components: {
-  //   Header
-  // }
 }
 </script>
 
@@ -30,21 +22,22 @@ export default {
 $theme: #7209b7;
 
 #home_nav {
-  background-color: $theme;
-  border: 1px solid $theme;
+  // background-color: $theme;
+  border-top: 1px solid #ddd;
+  border-bottom: 3px solid #ddd;
   height: 50px;
   line-height: 50px;
   vertical-align: middle;
-  color: #fff;
+  color: #000;
   text-align: center;
 }
 
 a {
     font-weight: bold;
-    color: #fff;
+    color: #000;
 
     &.router-link-exact-active {
-      color: #f72585;
+      color: $theme;
     }
   }
 </style>

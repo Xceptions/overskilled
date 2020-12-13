@@ -23,7 +23,7 @@ export default {
       if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(contact)) {
         window.open('mailto:' + contact + '?subject=' + subject + '&body=' + body)
       } else {
-        window.location.href = contact
+        window.open(contact)
       }
     }
   },

@@ -13,7 +13,7 @@
                 <b-col class='proj_img'>
                     <!-- {{ item.project_header.charAt(0) }} -->
                     <svg height="100" width="100">
-                      <circle cx="50" cy="50" r="40" stroke-width="3" stroke="red" fill="red" />
+                      <circle cx="50" cy="50" r="30" stroke-width="3" stroke="red" fill="red" />
                     </svg>
                 </b-col>
                 <b-col id='b' cols="5">
@@ -29,7 +29,7 @@
                     <div>{{ item.location }}</div>
                     <div>{{ new Date(item.date).toDateString() }}</div>
                 </b-col>
-                <b-col></b-col>
+                <!-- <b-col></b-col> -->
             </b-row>
             </div>
         </div>
@@ -68,7 +68,6 @@ $theme : rgb(25, 10, 167);
 .item_card {
     border-top: 1px solid #ededed;
     width: 80%;
-    // height: 40px;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
@@ -77,8 +76,10 @@ $theme : rgb(25, 10, 167);
     padding-bottom: 15px;
 }
 
-.item_card:hover {
+@media (hover: hover) and (pointer: fine) {
+  .item_card:hover {
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+  }
 }
 
 #item_proj {

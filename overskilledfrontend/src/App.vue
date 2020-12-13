@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div class="app_header" sticky>
-      <b-navbar toggleable="lg" sticky>
-        <b-navbar-brand href="#" id="logo"><h2>OverSkilled</h2></b-navbar-brand>
+      <b-navbar toggleable="lg" class='navbar' sticky>
+        <b-navbar-brand href="#" id="logo"><span>overskilled.io</span></b-navbar-brand>
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
 
@@ -23,12 +23,15 @@
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
-      <div class='app_header_content'>
-        <span id="app_header_content_text">Make Money with Your Tech Skills</span>
+        <div class='app_header_content'>
+        <div id="app_header_content_text">Work From Home Projects</div>
+        <br>
+        <router-link to="/post">
+          <button id='post-btn' type='button'>Post a Project $0.00</button>
+        </router-link>
       </div>
+      <router-view/>
     </div>
-
-    <router-view/>
 
     <div class="app_footer">
       <h1>Contact Us</h1>
@@ -61,14 +64,13 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
-// $theme : rgba(89, 99, 94, 0.8);
-$theme: rgba(230, 230, 230, 1);
-// $theme: #fff;
+$theme: #7209b7;
+$boxshadow: 0px 0px 30px 10px #eee;
 
 body, html {
   margin: 0;
   padding: 0;
-//     font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 div {
@@ -76,22 +78,18 @@ div {
 }
 
 .app_header {
-  background-color: $theme;
   margin: 0;
 }
 
-#logo {
-  color: #7209b7;
+.navbar {
+  box-shadow: $boxshadow;
+  background-color: #fff;
 }
 
-#app {
-  font-family: 'Open Sans', sans-serif;
-  // font-family: Avenir, Helvetica, Arial, sans-serif;
-  // -webkit-font-smoothing: antialiased;
-  // -moz-osx-font-smoothing: grayscale;
-  // text-align: center;
-  // color: #2c3e50;
-  // background-color: #fff;
+#logo {
+  color: $theme;
+  font-size: 42px;
+  text-shadow: 2px 2px #eef;
 }
 
 .app_header_tops {
@@ -123,10 +121,16 @@ div {
   }
 }
 
+.header_links {
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+}
+
 .app_header_content {
-  padding-top: 10%;
-  padding-bottom: 10%;
-  color: #7209b7;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color: #000;
   text-align: center;
 }
 
@@ -134,12 +138,26 @@ div {
   font-size: 60px;
 }
 
-.header_links {
+#post-btn {
+  width: 30%;
+  height: 50px;
+  border-radius: 4px;
+  background-color: $theme;
+  border: 2px solid $theme;
+  font-weight: bold;
   color: #fff;
-  text-align: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #post-btn:hover {
+    box-shadow: $boxshadow;
+    background-color: #fff;
+    color: #000;
+  }
 }
 
 .app_footer {
+  margin-top: 10px;
   height: 100px;
   background-color: #ddd;
   text-align: center;

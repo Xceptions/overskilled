@@ -12,7 +12,7 @@
             <b-row>
                 <b-col id='a'>
                     <svg height="100" width="100">
-                      <circle cx="50" cy="50" r="20" stroke-width="3" stroke="red" fill="red" />
+                      <circle cx="50" cy="50" r="30" stroke-width="3" stroke="red" fill="red" />
                     </svg>
                 </b-col>
                 <b-col id='b' cols="5">
@@ -23,11 +23,10 @@
                     <div>{{ item.platform }}</div>
                     <div><b-badge>{{ item.prize }}</b-badge></div>
                 </b-col>
-                <b-col cols="4">
-                    <span>{{ item.start }}</span> - <span>{{ item.end }}</span>
+                <b-col>
+                  <div>Deadline</div>
+                  <div>{{ item.end }}</div>
                 </b-col>
-                <!-- <b-col></b-col>
-                <b-col></b-col> -->
             </b-row>
             </div>
         </div>
@@ -49,7 +48,7 @@ export default {
   },
   methods: {
     gotocompetition (url) {
-      window.location.href = url
+      window.open(url)
     }
   }
 }
@@ -74,8 +73,10 @@ export default {
     padding-bottom: 15px;
 }
 
-.item_card:hover {
+@media (hover: hover) and (pointer: fine) {
+  .item_card:hover {
     box-shadow: 0px 0px 20px 10px rgba(230, 230, 230, 0.7);
+  }
 }
 
 #item_comp {
