@@ -1,5 +1,6 @@
 <template>
   <div class="post">
+    <div id='post-write-up'>Posted projects last for 3 days</div>
     <div class='post-body'>
       <b>Post a Project</b>
       <hr/>
@@ -24,7 +25,7 @@
           <b-form-input v-model="form.location"></b-form-input>
         </b-form-group>
         <br>
-        <b-form-group label='Contact Mail'>
+        <b-form-group label='Contact (Mail / URL)'>
           <b-form-input v-model="form.contact_me"></b-form-input>
         </b-form-group>
         <b-button type='submit' variant="success">Post Project</b-button>
@@ -55,40 +56,24 @@ export default {
     postProject () {
       axios.post('http://127.0.0.1:8000/viewprojects', this.form)
         .then((res) => {
-          alert('done')
-          alert(res)
+          window.location.href = '/home'
         })
         .catch((err) => {
-          alert(err)
-          alert(JSON.stringify(this.form))
+          console.log(err)
+          alert('unable to post project. Please try again later...')
         })
     }
   }
-  // methods: {
-  //   onFileSelected (e) {
-  //     this.selectedFile = event.target.files[0]
-  //   },
-  //   onUpload () {
-  //     const fd = new FormData();
-  //     fd.append('image', this.selectedFile, this.selectedFile.name)
-  //     axios.post('http://127.0.0.1:8000/viewproject', fd, {
-  //       // third argument can be used to show upload
-  //       onUploadProgress: uploadEvent => {
-  //         console.log('Upload Progress: ' + Math.round(uploadEvent.loaded * 100/ uploadEvent.total))
-  //       }
-  //     })
-  //     .then(res => {
-  //       // get response to know if it worked
-  //       console.log(res)
-  //     })
-  //   }
-  // }
 }
 </script>
 
 <style scoped>
 .post {
   padding-top: 15px;
+}
+
+#post-write-up {
+  text-align: center;
 }
 
 .post-body {

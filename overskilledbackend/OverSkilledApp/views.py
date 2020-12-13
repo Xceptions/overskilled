@@ -16,7 +16,7 @@ class HowToViewSet(viewsets.ModelViewSet):
 
 class ProjectView(views.APIView):
     def get(self, request, format=None):
-        query = Project.objects.all()
+        query = Project.objects.all().order_by('-id')
         serializer = ProjectSerializer(query, many=True)
         return Response(serializer.data)
 
@@ -36,7 +36,7 @@ class ProjectDetailsView(views.APIView):
 
 class CompetitionView(views.APIView):
     def get(self, request, format=None):
-        query = Competition.objects.all()
+        query = Competition.objects.all().order_by('-id')
         serializer = CompetitionSerializer(query, many=True)
         return Response(serializer.data)
 

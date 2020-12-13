@@ -23,8 +23,8 @@ $theme: #7209b7;
 
 #home_nav {
   // background-color: $theme;
-  border-top: 1px solid #ddd;
-  border-bottom: 3px solid #ddd;
+  // border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   height: 50px;
   line-height: 50px;
   vertical-align: middle;

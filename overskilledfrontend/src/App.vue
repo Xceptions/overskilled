@@ -2,7 +2,7 @@
   <div id="app">
     <div class="app_header" sticky>
       <b-navbar toggleable="lg" class='navbar' sticky>
-        <b-navbar-brand href="#" id="logo"><span>overskilled.io</span></b-navbar-brand>
+        <b-navbar-brand href="/home" id="logo"><span>overskilled.io</span></b-navbar-brand>
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
 
@@ -23,9 +23,14 @@
           </b-navbar-nav>
         </b-collapse>
       </b-navbar>
-        <div class='app_header_content'>
+      <div class='app_header_content'>
         <div id="app_header_content_text">Work From Home Projects</div>
-        <br>
+        <b>The number one place to find work from home projects</b>
+        <div>
+          <input id='subscribe_input' type='text'/> <b-button variant='primary'>Subscribe</b-button>
+        </div>
+      </div>
+      <div id='post-div'>
         <router-link to="/post">
           <button id='post-btn' type='button'>Post a Project $0.00</button>
         </router-link>
@@ -34,19 +39,20 @@
     </div>
 
     <div class="app_footer">
-      <h1>Contact Us</h1>
+      <h2>Contact Us</h2>
       <div>Questions, Complaints, Enquiries</div>
       <b-form class="b-form">
         <b-form-group id="input-group-1">
           <b-form-input v-model="text" placeholder="Email Address"></b-form-input>
           <br>
-          <b-form-textarea placeholder="Tell us!"></b-form-textarea>
+          <b-form-textarea placeholder="Tell us!" rows='7'></b-form-textarea>
+          <br>
+          <b-button variant='danger' size="lg">Submit</b-button>
         </b-form-group>
+        <b>We typically reply in less than 24 hours, so expect us!</b>
       </b-form>
-      <p>
-        <b>OverSkilled</b> was built by Kene Agbo, for the community
-        <p> Copyright {{ currentDate.getFullYear() }}
-      </p>
+      <b>overskilled.io</b> was built by Kene Agbo, for the community
+      <div> Copyright {{ currentDate.getFullYear() }}</div>
     </div>
   </div>
 </template>
@@ -65,7 +71,7 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
 $theme: #7209b7;
-$boxshadow: 0px 0px 30px 10px #eee;
+$boxshadow: 0px 0px 30px 10px #ddd;
 
 body, html {
   margin: 0;
@@ -82,8 +88,9 @@ div {
 }
 
 .navbar {
-  box-shadow: $boxshadow;
+  // box-shadow: $boxshadow;
   background-color: #fff;
+  border-bottom: 1px solid #ddd;
 }
 
 #logo {
@@ -130,12 +137,26 @@ div {
 .app_header_content {
   padding-top: 5%;
   padding-bottom: 5%;
-  color: #000;
+  color: #fff;
   text-align: center;
+  background-color: $theme;
 }
 
 #app_header_content_text {
   font-size: 60px;
+}
+
+#subscribe_input {
+  margin-top: 30px;
+  width: 300px;
+  border-radius: 4px;
+  border: 2px solid #fff;
+}
+
+#post-div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 #post-btn {
@@ -158,7 +179,7 @@ div {
 
 .app_footer {
   margin-top: 10px;
-  height: 100px;
+  // height: 100px;
   background-color: #ddd;
   text-align: center;
 }
