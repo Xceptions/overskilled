@@ -19,7 +19,7 @@
                 <b-col id='b' cols="5">
                     <!-- <div>{{ idx }}</div> -->
                     <div id='item_proj'>{{ item.project_header }}</div>
-                    <div>{{ item.project_body.slice(0, 100) }}... <span>view more</span></div>
+                    <div>{{ item.project_body.slice(0, 50) }}...</div>
                 </b-col>
                 <b-col id='c'>
                     <div>{{ item.amount }}</div>
