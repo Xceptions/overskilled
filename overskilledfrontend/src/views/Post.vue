@@ -1,6 +1,9 @@
 <template>
   <div class="post">
-    <div id='post-write-up'>Posted projects last for 3 days</div>
+    <div id='post-write-up'>
+      <p>Please don't post Jobs here, Only freelance projects</p>
+      <h4>Projects last for 3 days</h4>
+    </div>
     <div class='post-body'>
       <b>Post a Project</b>
       <hr/>
@@ -77,7 +80,7 @@ export default {
 }
 
 .post-body {
-  box-shadow: 0px 0px 30px rgba(230, 230, 230, 0.7);
+  box-shadow: 0px 0px 30px 10px #ededed;
   border-radius: 5px;
   max-width: 850px;
   margin-left: auto;
