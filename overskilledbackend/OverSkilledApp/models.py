@@ -30,9 +30,10 @@ class Project(models.Model):
     location = models.TextField()
     contact_me = models.TextField()
     date = models.DateField(auto_now=True)
+    applied = models.CharField(max_length=100, default='0')
 
     def __str__(self):
-        return self.project_header
+        return (f"{self.project_header}, Applied: {self.applied}")
 
 class Competition(models.Model):
     title = models.CharField(max_length=200)
@@ -42,6 +43,22 @@ class Competition(models.Model):
     start = models.DateField()
     end = models.DateField()
     url = models.TextField()
+    # visited = models.CharField(max_length=100, default='0')
 
     def __str__(self):
         return self.title
+
+class ContactUs(models.Model):
+    email = models.CharField(max_length=200)
+    message = models.TextField()
+    date = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return (f"{self.email}, Contacted: {self.date}")
+
+class Subscribers(models.Model):
+    email = models.CharField(max_length=200)
+    date = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return (f"{self.email}, Subscribed: {self.date}")

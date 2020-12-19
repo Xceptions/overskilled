@@ -26,9 +26,10 @@
       <div class='app_header_content'>
         <div id="app_header_content_text">Work From Home Projects</div>
         <b>The number one place to find work from home projects</b>
-        <div>
-          <input id='subscribe_input' type='text'/> <b-button variant='primary'>Subscribe</b-button>
-        </div>
+        <b-form v-on:submit.prevent="subscribe" class="b-form">
+          <b-form-input v-model="subscribeform.email"></b-form-input>
+          <b-button type='submit' variant="primary">Subscribe</b-button>
+        </b-form>
       </div>
       <div id='post-div'>
         <router-link to="/post">
@@ -41,16 +42,16 @@
     <div class="app_footer">
       <h2>Contact Us</h2>
       <div>Questions, Complaints, Enquiries</div>
-      <b-form class="b-form">
+      <b-form  v-on:submit.prevent="contactus" class="b-form">
         <b-form-group id="input-group-1">
-          <b-form-input v-model="text" placeholder="Email Address"></b-form-input>
+          <b-form-input v-model="contactusform.email" placeholder="Email Address"></b-form-input>
           <br>
-          <b-form-textarea placeholder="Tell us!" rows='7'></b-form-textarea>
+          <b-form-textarea v-model="contactusform.message" placeholder="Tell us!" rows='7'></b-form-textarea>
           <br>
-          <b-button variant='danger' size="lg">Submit</b-button>
         </b-form-group>
-        <b>We typically reply in less than 24 hours, so expect us!</b>
+        <b-button type='submit' variant='danger' size="lg">Submit</b-button>
       </b-form>
+      <b>We typically reply in less than 24 hours, so expect us!</b>
       <b>overskilled.io</b> was built by Kene Agbo, for the community
       <div> Copyright {{ currentDate.getFullYear() }}</div>
     </div>
@@ -58,11 +59,42 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'App',
   data () {
     return {
-      currentDate: new Date()
+      currentDate: new Date(),
+      subscribeform: {
+        email: ''
+      },
+      contactusform: {
+        email: '',
+        message: ''
+      }
+    }
+  },
+  methods: {
+    subscribe () {
+      axios.post('http://127.0.0.1:8000/subscribe', this.subscribeform)
+        .then((res) => {
+          window.alert('subscribed!')
+        })
+        .catch((err) => {
+          console.log(err)
+          alert('unable to subscribe for email alerts. Please try again later...')
+        })
+    },
+    contactus () {
+      axios.post('http://127.0.0.1:8000/contactus', this.contactusform)
+        .then((res) => {
+          window.alert('Message received. Will revert in due time!')
+        })
+        .catch((err) => {
+          alert(err)
+          // alert('unable to reach us. Please try again later...')
+        })
     }
   }
 }

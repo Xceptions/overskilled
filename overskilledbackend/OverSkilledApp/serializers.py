@@ -1,4 +1,4 @@
-from .models import About, HowTo, Project, Competition
+from .models import About, HowTo, Project, Competition, ContactUs, Subscribers
 from rest_framework import serializers
 
 
@@ -21,3 +21,13 @@ class CompetitionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Competition
         fields = '__all__'
+
+class ContactUsSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ContactUs
+        fields = ['email', 'message', 'date']
+
+class SubscribersSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Subscribers
+        fields = ['email', 'date'] # cannot use "__all__" because subscribers is a custom object

@@ -1,6 +1,7 @@
 from .models import About, HowTo, Project, Competition
 from rest_framework import viewsets, views, status
-from .serializers import AboutSerializer, HowToSerializer, ProjectSerializer, CompetitionSerializer
+from .serializers import AboutSerializer, HowToSerializer, ProjectSerializer, CompetitionSerializer, \
+    ContactUsSerializer, SubscribersSerializer
 from rest_framework.response import Response
 from django.http import Http404
 
@@ -27,12 +28,20 @@ class ProjectView(views.APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    # to increase the count of applications
+    def put(self, request, project_id):
+        instance = Project.objects.get(id=request.id)
+        serializer = ProjectSerializer(instance, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 class ProjectDetailsView(views.APIView):
     def get(self, request, project_id):
         query = Project.objects.get(pk=project_id)
         serializer = ProjectSerializer(query)
         return Response(serializer.data)
-
 
 class CompetitionView(views.APIView):
     def get(self, request, format=None):
@@ -42,6 +51,37 @@ class CompetitionView(views.APIView):
 
     def post(self, request, format=None):
         serializer = CompetitionSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    # to increase the count of applications
+    def put(self, request, format=None):
+        instance = Competition.objects.get(id=request.id)
+        serializer = CompetitionSerializer(instance, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class SubscribersView(views.APIView):
+    def get(self, request, format=None):
+        pass
+
+    def post(self, request, format=None):
+        serializer = SubscribersSerializer(data=request.data, context={'request': request})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class ContactUsView(views.APIView):
+    def get(self, request, format=None):
+        pass
+
+    def post(self, request, format=None):
+        serializer = ContactUsSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
