@@ -30,7 +30,7 @@ class Project(models.Model):
     location = models.TextField()
     contact_me = models.TextField()
     date = models.DateField(auto_now=True)
-    applied = models.CharField(max_length=100, default='0')
+    applied = models.IntegerField(default=0)
 
     def __str__(self):
         return (f"{self.project_header}, Applied: {self.applied}")
@@ -43,7 +43,7 @@ class Competition(models.Model):
     start = models.DateField()
     end = models.DateField()
     url = models.TextField()
-    # visited = models.CharField(max_length=100, default='0')
+    # applied = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title

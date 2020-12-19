@@ -30,7 +30,9 @@ class ProjectView(views.APIView):
 
     # to increase the count of applications
     def put(self, request, project_id):
-        instance = Project.objects.get(id=request.id)
+        instance = self.get_object(project_id)
+        data = instance
+        data.applied += 1
         serializer = ProjectSerializer(instance, data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -56,14 +58,14 @@ class CompetitionView(views.APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # to increase the count of applications
-    def put(self, request, format=None):
-        instance = Competition.objects.get(id=request.id)
-        serializer = CompetitionSerializer(instance, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # # to increase the count of applications
+    # def put(self, request, pk, format=None):
+    #     instance = self.get_object(pk)
+    #     serializer = CompetitionSerializer(instance, data=request.data)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         return Response(serializer.data)
+    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class SubscribersView(views.APIView):
     def get(self, request, format=None):

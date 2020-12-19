@@ -11,7 +11,7 @@ router.register(r'howto', views.HowToViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('admin/', admin.site.urls),
+    path('bonnet/', admin.site.urls),
 
     path('viewprojects', views.ProjectView.as_view()), # view list of projects
     path('projectdetails/<project_id>/', views.ProjectDetailsView.as_view()), # view detail of projects

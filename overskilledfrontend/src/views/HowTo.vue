@@ -34,11 +34,6 @@
       <h3> Helpful Resources </h3>
       <p class='story'>{{ howto['get_proj_res'] }}</p>
       <br>
-      <h3> Get Jobs </h3>
-      <p class='story'>{{ howto['get_job'] }}</p>
-      <h3> Helpful Resources </h3>
-      <p class='story'>{{ howto['get_job_res'] }}</p>
-      <br>
     </div>
   </div>
 </template>
