@@ -24,7 +24,7 @@
         </b-collapse>
       </b-navbar>
       <div class='app_header_content'>
-        <div id="app_header_content_text">Work From Home Projects</div>
+        <div id="app_header_content_text">Python-Based Projects</div>
         <b>The number one place to find work from home projects</b>
         <b-form v-on:submit.prevent="subscribe" class="b-form">
           <b-form-input v-model="subscribeform.email"></b-form-input>
@@ -51,7 +51,7 @@
         </b-form-group>
         <b-button type='submit' variant='danger' size="lg">Submit</b-button>
       </b-form>
-      <b>We typically reply in less than 24 hours, so expect us!</b>
+      <p>We typically reply in less than 24 hours, so expect us!</p>
       <b>overskilled.io</b> was built by Kene Agbo, for the community
       <div> Copyright {{ currentDate.getFullYear() }}</div>
     </div>

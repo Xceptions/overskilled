@@ -23,20 +23,24 @@ class ProjectView(views.APIView):
 
     def post(self, request, format=None):
         serializer = ProjectSerializer(data=request.data)
+        print(request.data)
+        print("====================================")
+        print(serializer)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     # to increase the count of applications
-    def put(self, request, project_id):
-        instance = self.get_object(project_id)
-        data = instance
-        data.applied += 1
-        serializer = ProjectSerializer(instance, data=request.data)
+    def put(self, request, pk):
+        instance = Project.objects.get(pk=pk)
+        instanceserialize = ProjectSerializer(instance)
+        data = instanceserialize.data
+        data['applied'] += 1
+        serializer = ProjectSerializer(instance, data=data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data)
+            return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class ProjectDetailsView(views.APIView):
@@ -58,14 +62,17 @@ class CompetitionView(views.APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # # to increase the count of applications
-    # def put(self, request, pk, format=None):
-    #     instance = self.get_object(pk)
-    #     serializer = CompetitionSerializer(instance, data=request.data)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return Response(serializer.data)
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # to increase the count of applications
+    def put(self, request, pk):
+        instance = Competition.objects.get(pk=pk)
+        instanceserialize = CompetitionSerializer(instance)
+        data = instanceserialize.data
+        data['applied'] += 1
+        serializer = CompetitionSerializer(instance, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class SubscribersView(views.APIView):
     def get(self, request, format=None):

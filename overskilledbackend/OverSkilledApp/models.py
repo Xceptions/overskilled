@@ -43,7 +43,7 @@ class Competition(models.Model):
     start = models.DateField()
     end = models.DateField()
     url = models.TextField()
-    # applied = models.IntegerField(default=0)
+    applied = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title

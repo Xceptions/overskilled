@@ -15,10 +15,10 @@ urlpatterns = [
 
     path('viewprojects', views.ProjectView.as_view()), # view list of projects
     path('projectdetails/<project_id>/', views.ProjectDetailsView.as_view()), # view detail of projects
-    path('projectapply/<project_id>/', views.ProjectDetailsView.as_view()), # apply for project
+    path('projectapply/<pk>/', views.ProjectView.as_view()), # apply for project
 
     path('viewcompetitions', views.CompetitionView.as_view()), # view list of competitions
-    path('competitionapply/<competition_id>/', views.ProjectDetailsView.as_view()), # apply for competition
+    path('gotocompetition/<pk>/', views.CompetitionView.as_view()), # apply for competition
 
     path('subscribe', views.SubscribersView.as_view()),
     path('contactus', views.ContactUsView.as_view()),

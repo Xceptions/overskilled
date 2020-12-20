@@ -8,7 +8,7 @@
     </div>
     <div id="">
         <div v-for="item in competitions" :key="item.platform" class="item_card">
-            <div @click="gotocompetition(item.url)">
+            <div @click="gotocompetition(item)">
             <b-row>
                 <b-col id='a'>
                     <svg height="100" width="100">
@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 // eslint-disable-next-line no-unused-vars
 export default {
   name: 'competitions',
@@ -47,8 +49,15 @@ export default {
     this.$store.dispatch('getCompetitions')
   },
   methods: {
-    gotocompetition (url) {
-      window.open(url)
+    gotocompetition (item) {
+      axios.put('http://127.0.0.1:8000/gotocompetition/' + item.id + '/')
+        .then((res) => {
+          window.open(item.url)
+        })
+        .catch((err) => {
+          console.log(err)
+          alert('unable to go to competition. Please try again later...')
+        })
     }
   }
 }
