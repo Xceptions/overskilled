@@ -10,7 +10,9 @@ export default new Vuex.Store({
     howtos: [],
     projects: [],
     projectdetails: [],
-    competitions: []
+    competitions: [],
+    jobs: [],
+    jobdetails: []
   },
   mutations: {
     SET_ABOUTS (state, abouts) {
@@ -27,6 +29,12 @@ export default new Vuex.Store({
     },
     SET_COMPETITIONS (state, competitions) {
       state.competitions = competitions
+    },
+    SET_JOBS (state, jobs) {
+      state.jobs = jobs
+    },
+    SET_JOBDETAILS (state, jobdetails) {
+      state.jobdetails = jobdetails
     }
   },
   actions: {
@@ -58,6 +66,18 @@ export default new Vuex.Store({
       axios.get('http://127.0.0.1:8000/viewcompetitions')
         .then(response => {
           commit('SET_COMPETITIONS', response.data)
+        })
+    },
+    getJobs ({ commit }) {
+      axios.get('http://127.0.0.1:8000/viewjobs')
+        .then(response => {
+          commit('SET_JOBS', response.data)
+        })
+    },
+    getJobDetails ({ commit }, payload) {
+      axios.get('http://127.0.0.1:8000/jobdetails/' + payload + '/')
+        .then(response => {
+          commit('SET_JOBDETAILS', response.data)
         })
     }
   },

@@ -1,7 +1,7 @@
 <template>
   <div class="post">
     <div id='post-write-up'>
-      <p>Please don't post Jobs here, Only freelance projects</p>
+      <p>Only Python related jobs are allowed</p>
       <h4>Projects last for 3 days</h4>
     </div>
     <div class='post-body'>

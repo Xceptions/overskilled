@@ -1,29 +1,37 @@
 <template>
   <div class="jobs">
     <div class='job_header'>
-        <h2><b>Jobs</b></h2>
+        <h2>Jobs</h2>
         <p>
-            <router-link to="/howto/jobs">Learn how to get jobs here</router-link>
+          <router-link to="/howto">Learn how to get jobs here</router-link>
         </p>
     </div>
     <div id="">
-        <div v-for="item in jobs" :key="item.title" class="item_card">
+        <div v-for="item in jobs" :key="item.id" class="item_card">
+            <div @click="viewjobdetails(item.id)">
             <b-row>
-                <!-- <b-col id='a'>
-                    <img alt="Vue logo" src="../../../overskilledbackend/media/images/company-5.png" + id="job_img">
-                </b-col> -->
+                <b-col class='proj_img'>
+                    <!-- {{ item.job_header.charAt(0) }} -->
+                    <svg height="100" width="100">
+                      <circle cx="50" cy="50" r="30" stroke-width="3" stroke="red" fill="red" />
+                    </svg>
+                </b-col>
                 <b-col id='b' cols="5">
-                    <div id='item_job'>{{ item.title }}</div>
-                    <div>{{ item.company }}</div>
+                    <!-- <div>{{ idx }}</div> -->
+                    <div id='item_proj'>{{ item.job_header }}</div>
+                    <div>{{ item.job_body.slice(0, 50) }}...</div>
                 </b-col>
                 <b-col id='c'>
-                    <!-- <div>{{ item.job }}</div> -->
-                    <div><b-badge>{{ item.location }}</b-badge></div><!-- / Fixed-->
+                    <div>{{ item.amount }}</div>
+                    <div><b-badge variant="primary">{{ item.bargain }}</b-badge></div><!-- / Fixed-->
+                </b-col>
+                <b-col>
+                    <div>{{ item.location }}</div>
                     <div>{{ new Date(item.date).toDateString() }}</div>
                 </b-col>
-                <!-- <b-col></b-col>
-                <b-col></b-col> -->
+                <!-- <b-col></b-col> -->
             </b-row>
+            </div>
         </div>
     </div>
   </div>
@@ -33,30 +41,24 @@
 // eslint-disable-next-line no-unused-vars
 export default {
   name: 'Jobs',
-  // data () {
-  //   return {
-  //     jobs: [
-  //       { title: 'Python Developer', company: 'Google', location: 'Anywhere', date: '25/09/2020' },
-  //       { title: 'Python Developer', company: 'Google', location: 'America', date: '25/09/2020' },
-  //       { title: 'Python Developer', company: 'Google', location: 'Anywhere', date: '25/09/2020' },
-  //       { title: 'Python Developer', company: 'Google', location: 'EMEA', date: '25/09/2020' },
-  //       { title: 'Python Developer', company: 'Google', location: 'Anywhere', date: '25/09/2020' }
-  //     ]
-  //   }
-  // },
   computed: {
     jobs () {
       return this.$store.state.jobs
     }
   },
   mounted () {
-    this.$store.dispatch('getJobs')
+    this.$store.dispatch('getjobs')
+  },
+  methods: {
+    viewjobdetails (jobId) {
+      this.$router.push({ path: 'jobdetails', query: { jobId: jobId } })
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
-
+$theme : rgb(25, 10, 167);
 .job_header {
     padding-top: 30px;
     padding-bottom: 5px;
@@ -74,12 +76,19 @@ export default {
     padding-bottom: 15px;
 }
 
-.item_card:hover {
-    box-shadow: 0px 0px 20px 10px rgba(230, 230, 230, 0.7);
+@media (hover: hover) and (pointer: fine) {
+  .item_card:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+  }
 }
 
-#item_job {
+#item_proj {
     font-size: 23px;
     font-weight: bold;
+}
+
+svg {
+    text-align: center;
+    margin-left: 5px;
 }
 </style>

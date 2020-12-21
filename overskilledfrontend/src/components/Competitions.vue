@@ -1,7 +1,7 @@
 <template>
   <div class="competitions">
     <div class='competition_header'>
-        <!-- <h2><b>Competitions</b></h2> -->
+        <h2>Competitions</h2>
         <p>
             <router-link to="/howto">Learn how to get and approach competitions here</router-link>
         </p>

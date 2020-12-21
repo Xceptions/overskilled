@@ -24,16 +24,16 @@
         </b-collapse>
       </b-navbar>
       <div class='app_header_content'>
-        <div id="app_header_content_text">Python-Based Projects</div>
-        <b>The number one place to find work from home projects</b>
-        <b-form v-on:submit.prevent="subscribe" class="b-form">
-          <b-form-input v-model="subscribeform.email"></b-form-input>
+        <div id="app_header_content_text">Python-Everything Board</div>
+        <b>The number one place to find python jobs across Web development, Data Science, Cyber Security</b>
+        <b-form v-on:submit.prevent="subscribe" class="subscribeform" inline>
+          <b-form-input v-model="subscribeform.email" id="subscribeinput"></b-form-input>
           <b-button type='submit' variant="primary">Subscribe</b-button>
         </b-form>
       </div>
       <div id='post-div'>
         <router-link to="/post">
-          <button id='post-btn' type='button'>Post a Project $0.00</button>
+          <button id='post-btn' type='button'>Post a Job $0.00</button>
         </router-link>
       </div>
       <router-view/>
@@ -178,11 +178,17 @@ div {
   font-size: 60px;
 }
 
-#subscribe_input {
-  margin-top: 30px;
-  width: 300px;
-  border-radius: 4px;
-  border: 2px solid #fff;
+.subscribeform {
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  padding-left: 5px;
+  // background-color: red;
+}
+
+#subscribeinput {
+  width: 80%;
 }
 
 #post-div {
