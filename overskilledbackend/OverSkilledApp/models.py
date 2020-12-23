@@ -35,6 +35,20 @@ class Project(models.Model):
     def __str__(self):
         return (f"{self.project_header}, Applied: {self.applied}")
 
+class Job(models.Model):
+    job_header = models.CharField(max_length=200)
+    job_body = models.TextField()
+    company = models.CharField(max_length=255)
+    category = models.TextField()
+    amount = models.CharField(max_length=100, default='100')
+    location = models.CharField(max_length=200)
+    contact_me = models.TextField()
+    date = models.DateField(auto_now=True)
+    applied = models.IntegerField(default=0)
+
+    def __str__(self):
+        return (f"{self.job_header}, Applied: {self.applied}")
+
 class Competition(models.Model):
     title = models.CharField(max_length=200)
     platform = models.CharField(max_length=200)
@@ -49,7 +63,7 @@ class Competition(models.Model):
         return self.title
 
 class ContactUs(models.Model):
-    email = models.CharField(max_length=200)
+    email = models.CharField(max_length=200, blank=True)
     message = models.TextField()
     date = models.DateField(auto_now=True)
 

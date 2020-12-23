@@ -1,7 +1,7 @@
-from .models import About, HowTo, Project, Competition
+from .models import About, HowTo, Project, Competition, Job
 from rest_framework import viewsets, views, status
 from .serializers import AboutSerializer, HowToSerializer, ProjectSerializer, CompetitionSerializer, \
-    ContactUsSerializer, SubscribersSerializer
+    ContactUsSerializer, SubscribersSerializer, JobSerializer
 from rest_framework.response import Response
 from django.http import Http404
 
@@ -23,9 +23,6 @@ class ProjectView(views.APIView):
 
     def post(self, request, format=None):
         serializer = ProjectSerializer(data=request.data)
-        print(request.data)
-        print("====================================")
-        print(serializer)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -47,6 +44,38 @@ class ProjectDetailsView(views.APIView):
     def get(self, request, project_id):
         query = Project.objects.get(pk=project_id)
         serializer = ProjectSerializer(query)
+        return Response(serializer.data)
+
+class JobView(views.APIView):
+    def get(self, request, format=None):
+        query = Job.objects.all().order_by('-id')
+        serializer = JobSerializer(query, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        serializer = JobSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    # to increase the count of applications
+    def put(self, request, pk):
+        instance = Job.objects.get(pk=pk)
+        instanceserialize = JobSerializer(instance)
+        data = instanceserialize.data
+        data['applied'] += 1
+        serializer = JobSerializer(instance, data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class JobDetailsView(views.APIView):
+    def get(self, request, job_id):
+        query = Job.objects.get(pk=job_id)
+        serializer = JobSerializer(query)
+        print(serializer.data)
         return Response(serializer.data)
 
 class CompetitionView(views.APIView):

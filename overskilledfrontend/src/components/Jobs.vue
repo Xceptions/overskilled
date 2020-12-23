@@ -13,12 +13,12 @@
                 <b-col class='proj_img'>
                     <!-- {{ item.job_header.charAt(0) }} -->
                     <svg height="100" width="100">
-                      <circle cx="50" cy="50" r="30" stroke-width="3" stroke="red" fill="red" />
+                      <circle cx="50" cy="50" r="10" stroke-width="3" stroke="#7209b7" fill="#7209b7" />
                     </svg>
                 </b-col>
                 <b-col id='b' cols="5">
                     <!-- <div>{{ idx }}</div> -->
-                    <div id='item_proj'>{{ item.job_header }}</div>
+                    <div id='item_proj'>{{ item.job_header.slice(0, 30) }}...</div>
                     <div>{{ item.job_body.slice(0, 50) }}...</div>
                 </b-col>
                 <b-col id='c'>
@@ -47,7 +47,7 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch('getjobs')
+    this.$store.dispatch('getJobs')
   },
   methods: {
     viewjobdetails (jobId) {
@@ -67,7 +67,7 @@ $theme : rgb(25, 10, 167);
 
 .item_card {
     border-top: 1px solid #ededed;
-    width: 80%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
@@ -83,7 +83,7 @@ $theme : rgb(25, 10, 167);
 }
 
 #item_proj {
-    font-size: 23px;
+    font-size: 18px;
     font-weight: bold;
 }
 

@@ -26,8 +26,10 @@
       <div class='app_header_content'>
         <div id="app_header_content_text">Python-Everything Board</div>
         <b>The number one place to find python jobs across Web development, Data Science, Cyber Security</b>
-        <b-form v-on:submit.prevent="subscribe" class="subscribeform" inline>
-          <b-form-input v-model="subscribeform.email" id="subscribeinput"></b-form-input>
+        <b-form v-on:submit.prevent="subscribe" class="subscribeform">
+          <br>
+          <b-form-input ref='subscribeform' v-model="subscribeform.email" id="subscribeinput"></b-form-input>
+          <br>
           <b-button type='submit' variant="primary">Subscribe</b-button>
         </b-form>
       </div>
@@ -80,6 +82,7 @@ export default {
       axios.post('http://127.0.0.1:8000/subscribe', this.subscribeform)
         .then((res) => {
           window.alert('subscribed!')
+          window.location.href = '/home'
         })
         .catch((err) => {
           console.log(err)
@@ -182,14 +185,14 @@ div {
   max-width: 70%;
   margin-left: auto;
   margin-right: auto;
-  align-content: center;
-  padding-left: 5px;
+  // align-content: center;
+  // padding-left: 5px;
   // background-color: red;
 }
 
-#subscribeinput {
-  width: 80%;
-}
+// #subscribeinput {
+//   width: 100%;
+// }
 
 #post-div {
   margin-top: 20px;

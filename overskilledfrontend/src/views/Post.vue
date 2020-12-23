@@ -2,33 +2,48 @@
   <div class="post">
     <div id='post-write-up'>
       <p>Only Python related jobs are allowed</p>
-      <h4>Projects last for 3 days</h4>
+      <h4>Job Postings last for 1 week</h4>
     </div>
     <div class='post-body'>
-      <b>Post a Project</b>
+      <b>Post a Job</b>
       <hr/>
-      <b-form v-on:submit.prevent="postProject" class="b-form">
-        <b-form-group label="Header">
-          <b-form-input v-model="form.project_header"></b-form-input>
+      <b-form v-on:submit.prevent="postJob" class="b-form">
+        <b-form-group>
+          <label>Header</label>
+          <b-form-input v-model="form.job_header"></b-form-input>
         </b-form-group>
         <br>
-        <b-form-group label='Description'>
-          <b-form-textarea v-model="form.project_body"></b-form-textarea>
+        <b-form-group>
+          <label>Description</label>
+          <b-form-textarea v-model="form.job_body"></b-form-textarea>
         </b-form-group>
         <br>
-        <b-form-group label="Amount">
+        <b-form-group>
+          <label>Company</label>
+          <b-form-input v-model="form.company"></b-form-input>
+        </b-form-group>
+        <br>
+        <b-form-group>
+          <label>Category</label>
+          <b-form-input v-model="form.category"></b-form-input>
+        </b-form-group>
+        <br>
+        <b-form-group>
+          <label>Amount</label>
           <b-form-input v-model="form.amount"></b-form-input>
         </b-form-group>
-        <b-form-group>
+        <!-- <b-form-group>
           <b-form-radio v-model="form.bargain" name="some-radios" value="negotiable">Negotiable</b-form-radio>
           <b-form-radio v-model="form.bargain" name="some-radios" value="fixed">Fixed</b-form-radio>
-        </b-form-group>
+        </b-form-group> -->
         <br>
-        <b-form-group label="Location">
+        <b-form-group>
+          <label>Location</label>
           <b-form-input v-model="form.location"></b-form-input>
         </b-form-group>
         <br>
-        <b-form-group label='Contact (Mail / URL)'>
+        <b-form-group>
+          <label>Contact (Mail / URL)</label>
           <b-form-input v-model="form.contact_me"></b-form-input>
         </b-form-group>
         <b-button type='submit' variant="success">Post Project</b-button>
@@ -46,18 +61,19 @@ export default {
     return {
       selectedFile: null,
       form: {
-        project_header: '',
-        project_body: '',
+        job_header: '',
+        job_body: '',
+        company: '',
+        category: '',
         amount: '',
-        bargain: '',
         location: '',
         contact_me: ''
       }
     }
   },
   methods: {
-    postProject () {
-      axios.post('http://127.0.0.1:8000/viewprojects', this.form)
+    postJob () {
+      axios.post('http://127.0.0.1:8000/viewjobs', this.form)
         .then((res) => {
           window.location.href = '/home'
         })
@@ -82,7 +98,7 @@ export default {
 .post-body {
   box-shadow: 0px 0px 30px 10px #ededed;
   border-radius: 5px;
-  max-width: 850px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
@@ -92,7 +108,8 @@ export default {
   margin-bottom: 10px;
 }
 
-/* label {
-  align-content: left;
-} */
+label {
+  font-weight: bold;
+  font-size: 13px;
+}
 </style>

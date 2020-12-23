@@ -8,6 +8,7 @@ import Talks from '../components/Talks.vue'
 import Projects from '../components/Projects.vue'
 import Jobs from '../components/Jobs.vue'
 import ProjectDetails from '../components/ProjectDetails.vue'
+import JobDetails from '../components/JobDetails.vue'
 
 Vue.use(VueRouter)
 
@@ -21,10 +22,9 @@ const routes = [
     name: 'Home',
     component: Home,
     children: [
-      { path: '', component: Projects },
+      { path: '', component: Jobs },
       { path: 'competitions', component: Competitions },
-      { path: 'talks', component: Talks },
-      { path: 'jobs', component: Jobs }
+      { path: 'talks', component: Talks }
     ]
   },
   {
@@ -58,6 +58,11 @@ const routes = [
     path: '/projectdetails',
     name: 'ProjectDetails',
     component: ProjectDetails
+  },
+  {
+    path: '/jobdetails',
+    name: 'JobDetails',
+    component: JobDetails
   }
 ]
 

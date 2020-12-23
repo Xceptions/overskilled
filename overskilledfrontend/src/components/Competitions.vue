@@ -12,7 +12,7 @@
             <b-row>
                 <b-col id='a'>
                     <svg height="100" width="100">
-                      <circle cx="50" cy="50" r="30" stroke-width="3" stroke="red" fill="red" />
+                      <circle cx="50" cy="50" r="10" stroke-width="3" stroke="#7209b7" fill="#7209b7" />
                     </svg>
                 </b-col>
                 <b-col id='b' cols="5">
@@ -73,7 +73,7 @@ export default {
 
 .item_card {
     border-top: 1px solid #ededed;
-    width: 80%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     align-items: center;

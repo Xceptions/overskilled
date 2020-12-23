@@ -17,6 +17,10 @@ urlpatterns = [
     path('projectdetails/<project_id>/', views.ProjectDetailsView.as_view()), # view detail of projects
     path('projectapply/<pk>/', views.ProjectView.as_view()), # apply for project
 
+    path('viewjobs', views.JobView.as_view()), # view list of jobs
+    path('jobdetails/<job_id>/', views.JobDetailsView.as_view()), # view detail of jobs
+    path('jobapply/<pk>/', views.JobView.as_view()), # apply for job
+
     path('viewcompetitions', views.CompetitionView.as_view()), # view list of competitions
     path('gotocompetition/<pk>/', views.CompetitionView.as_view()), # apply for competition
 
