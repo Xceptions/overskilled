@@ -2,9 +2,9 @@
   <div class="jobs">
     <div class='job_header'>
         <h2>Jobs</h2>
-        <p>
+        <!-- <p>
           <router-link to="/howto">Learn how to get jobs here</router-link>
-        </p>
+        </p> -->
     </div>
     <div id="">
         <div v-for="item in jobs" :key="item.id" class="item_card">
@@ -18,7 +18,7 @@
                 </b-col>
                 <b-col id='b' cols="5">
                     <!-- <div>{{ idx }}</div> -->
-                    <div id='item_proj'>{{ item.job_header.slice(0, 30) }}...</div>
+                    <div class='item_header'>{{ item.job_header.slice(0, 30) }}...</div>
                     <div>{{ item.job_body.slice(0, 50) }}...</div>
                 </b-col>
                 <b-col id='c'>
@@ -82,8 +82,9 @@ $theme : rgb(25, 10, 167);
   }
 }
 
-#item_proj {
-    font-size: 18px;
+.item_header {
+    font-size: 23px;
+    color: #777;
     font-weight: bold;
 }
 

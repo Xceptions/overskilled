@@ -1,28 +1,33 @@
 <template>
-  <!-- <div class="howto">
-    <h3> Ace Competitions </h3>
-    <p class='story'> {{ competitions_story }} </p>
-    <b>Helpful Resources</b>
-    <p v-for="item in competitions_links" :key="item">
-      <a href= item>{{ item }}</a>
-    </p>
-    <br>
-    <h3> Get Projects </h3>
-    <p class='story'> {{ projects_story }} </p>
-    <b>Helpful Resources</b>
-    <p v-for="item in projects_links" :key="item">
-      <a href= item>{{ item }}</a>
-    </p>
-    <br>
-    <h3> Get Jobs </h3>
-    <p class='story'> {{ jobs_story }} </p>
-    <b>Helpful Resources</b>
-    <p v-for="item in jobs_links" :key="item">
-      <a href= item>{{ item }}</a>
-    </p>
-    <br>
-  </div> -->
   <div class="howto">
+    <div class='howtoheader'>Learn Python</div>
+    To Learn the basics of the python programming language, we recommend to pick up one of the following
+    books:
+    <ol>
+      <li>Mark Lutz - Learning Python</li>
+      <li>Automate with Python</li>
+      <li>Python for dummies</li>
+    </ol>
+    <hr>
+    <div class='howtoheader'>Practice Projects</div>
+    To get hands-on practice on python
+    <ol>
+      <li>The Binary Search Algorithm</li>
+      <li>WhatsApp for Python - A Web Messaging System</li>
+      <li>Contribute to Open Source</li>
+      <li>Build facebook</li>
+    </ol>
+    <hr>
+    <div class='howtoheader'>Tools of Specialization</div>
+    Below are a list of python libraries and frameworks for various programming specialization:
+    <table>
+      <th>Specialization</th>
+      <th>Tools</th>
+      <tr>
+        <td>Web development</td>
+        <td>Data Science</td>
+      </tr>
+    </table>
     <div v-for = "howto in howtos" :key="howto.ace_comp">
       <h3> Ace Competitions </h3>
       <p class='story'>{{ howto['ace_comp'] }}</p>
@@ -63,7 +68,6 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-
 .howto {
   padding: 15px;
   max-width: 750px;
@@ -72,9 +76,12 @@ export default {
   text-align: left;
 }
 
-.story::first-letter {
-  font-size: 32px;
-  font-weight: bold;
+.howtoheader {
+  font-size: 25px;
 }
 
+.howtoheader::first-letter {
+  font-size: 35px;
+  // font-weight: bold;
+}
 </style>

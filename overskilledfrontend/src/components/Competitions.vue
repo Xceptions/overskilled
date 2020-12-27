@@ -2,9 +2,9 @@
   <div class="competitions">
     <div class='competition_header'>
         <h2>Competitions</h2>
-        <p>
+        <!-- <p>
             <router-link to="/howto">Learn how to get and approach competitions here</router-link>
-        </p>
+        </p> -->
     </div>
     <div id="">
         <div v-for="item in competitions" :key="item.platform" class="item_card">
@@ -16,7 +16,7 @@
                     </svg>
                 </b-col>
                 <b-col id='b' cols="5">
-                    <div id='item_comp'>{{ item.title }}</div>
+                    <div class='item_header'>{{ item.title }}</div>
                     <div>{{ item.specialization }}</div>
                 </b-col>
                 <b-col id='c'>
@@ -88,8 +88,9 @@ export default {
   }
 }
 
-#item_comp {
+.item_header {
     font-size: 23px;
+    color: #777;
     font-weight: bold;
 }
 
