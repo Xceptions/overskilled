@@ -20,14 +20,6 @@
     <hr>
     <div class='howtoheader'>Tools of Specialization</div>
     Below are a list of python libraries and frameworks for various programming specialization:
-    <table>
-      <th>Specialization</th>
-      <th>Tools</th>
-      <tr>
-        <td>Web development</td>
-        <td>Data Science</td>
-      </tr>
-    </table>
     <b-table striped hover :items="items"></b-table>
     <!-- <div v-for = "howto in howtos" :key="howto.ace_comp">
       <h3> Ace Competitions </h3>
@@ -50,9 +42,9 @@ export default {
   data () {
     return {
       items: [
-        { Specialization: "Web development", Tools: "Django, Flask, WSGI" },
-        { Specialization: "Data Science", Tools: "Pandas, Numpy" },
-        { Specialization: "Machine Learning", Tools: "TensorFlow, Pytorch" },
+        { Specialization: 'Web development', Tools: 'Django, Flask, WSGI' },
+        { Specialization: 'Data Science', Tools: 'Pandas, Numpy' },
+        { Specialization: 'Machine Learning', Tools: 'TensorFlow, Pytorch' }
       ]
     }
   },
