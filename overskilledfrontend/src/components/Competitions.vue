@@ -12,7 +12,7 @@
             <b-row>
                 <b-col id='a'>
                     <svg height="100" width="100">
-                      <circle cx="50" cy="50" r="10" stroke-width="3" stroke="#7209b7" fill="#7209b7" />
+                      <circle cx="50" cy="50" r="10" stroke-width="3" stroke="#f10890" fill="#f10890" />
                     </svg>
                 </b-col>
                 <b-col id='b' cols="5">
@@ -89,8 +89,8 @@ export default {
 }
 
 .item_header {
-    font-size: 23px;
-    color: #777;
+    font-size: 20px;
+    color: #555;
     font-weight: bold;
 }
 

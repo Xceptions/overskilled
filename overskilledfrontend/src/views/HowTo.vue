@@ -5,8 +5,10 @@
     books:
     <ol>
       <li>Mark Lutz - Learning Python</li>
-      <li>Automate with Python</li>
+      <li>Automate the boring stuff with Python</li>
       <li>Python for dummies</li>
+      <li>Think Python</li>
+      <li>Learn Python 3 the hard way</li>
     </ol>
     <hr>
     <div class='howtoheader'>Practice Projects</div>
@@ -16,11 +18,13 @@
       <li>WhatsApp for Python - A Web Messaging System</li>
       <li>Contribute to Open Source</li>
       <li>Tic Tac Toe</li>
+      <li>Scientific Calculator to solve a science problem</li>
     </ol>
     <hr>
     <div class='howtoheader'>Tools of Specialization</div>
-    Below are a list of python libraries and frameworks for various programming specialization:
+    Below are a list of python libraries and frameworks for various programming specializations:
     <b-table striped hover :items="items"></b-table>
+    <p>Know anything else we can add? Feel free to use the contact form</p>
     <!-- <div v-for = "howto in howtos" :key="howto.ace_comp">
       <h3> Ace Competitions </h3>
       <p class='story'>{{ howto['ace_comp'] }}</p>
@@ -43,8 +47,12 @@ export default {
     return {
       items: [
         { Specialization: 'Web development', Tools: 'Django, Flask, WSGI' },
-        { Specialization: 'Data Science', Tools: 'Pandas, Numpy' },
-        { Specialization: 'Machine Learning', Tools: 'TensorFlow, Pytorch' }
+        { Specialization: 'Mobile development', Tools: 'Kivy' },
+        { Specialization: 'Desktop Applications', Tools: 'Tkinter, PyQt' },
+        { Specialization: 'Data Science', Tools: 'Pandas, Numpy, Statsmodels' },
+        { Specialization: 'Machine Learning', Tools: 'TensorFlow, Pytorch' },
+        { Specialization: 'Network Programming', Tools: 'Asyncio, Diesel' },
+        { Specialization: 'Bioinformatics', Tools: 'Biopython' }
       ]
     }
   },

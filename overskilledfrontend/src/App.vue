@@ -30,7 +30,7 @@
           <br>
           <b-form-input ref='subscribeform' v-model="subscribeform.email" id="subscribeinput"></b-form-input>
           <br>
-          <b-button type='submit' variant="primary">Subscribe</b-button>
+          <b-button type='submit' variant="primary">Subscribe For Email Alerts</b-button>
         </b-form>
       </div>
       <div id='post-div'>
