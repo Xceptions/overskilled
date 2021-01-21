@@ -1,30 +1,44 @@
 <template>
   <div class="home">
     <div id="home_nav">
-      <b-icon-arrow-up></b-icon-arrow-up>
-      <router-link to="/home/competitions">Competitions</router-link> |
-      <!-- <router-link to="/home">Projects</router-link> -->
-      <!-- <router-link to="/home/talks">Talks</router-link> | -->
-      <router-link to="/home">Jobs</router-link>
+      <div class="options_div">
+        <div><b-icon icon="view-stacked" class="options_icon"></b-icon></div>
+        <div><router-link to="/home/competitions">Competitions</router-link></div>
+      </div>
+      <div class="options_div">
+        <b-icon icon="bullseye" class="options_icon"></b-icon>
+        <!-- <br> -->
+        <div><router-link to="/home">Jobs</router-link></div>
+      </div>
     </div>
     <router-view/>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
+
+import { BIcon, BIconArrowUp, BIconBullseye, BIconViewStacked } from 'bootstrap-vue'
 export default {
-  name: 'Home'
+  name: 'Home',
+  components: {
+    BIcon,
+    BIconArrowUp,
+    BIconBullseye,
+    BIconViewStacked
+  }
 }
 </script>
 
 <style scoped lang="scss">
 
-$theme: #7209b7;
+$theme: #f8f8f8;
+$designtheme: #369df1;
 
 #home_nav {
-  // background-color: $theme;
-  // border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  background-color: $theme;
   height: 50px;
   line-height: 50px;
   vertical-align: middle;
@@ -37,7 +51,23 @@ a {
     color: #000;
 
     &.router-link-exact-active {
-      color: $theme;
+      color: $designtheme;
     }
   }
+
+.options_icon {
+  width: 30px;
+  height: 30px;
+  color: $designtheme;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .options_div:hover {
+    background-color: $designtheme;
+    color: #fff;
+    .options_icon {
+      color: #fff;
+    }
+  }
+}
 </style>

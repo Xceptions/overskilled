@@ -218,8 +218,6 @@ div {
 #subscribeinput {
   width: 90%;
   height: 34px;
-  vertical-align: middle;
-  line-height: 60px;
   padding-top: 6px;
   border: 1px solid #fff;
 }
@@ -236,6 +234,9 @@ div {
   font-size: 20px;
   height: 45px;
 }
+#subscribebtn:focus {
+  outline: none;
+}
 
 .after_header {
   background-color: #f8f8f8;
@@ -250,11 +251,11 @@ div {
 }
 
 #post-btn {
-  width: 30%;
+  width: 20%;
   height: 50px;
   border-radius: 4px;
-  background-color: $theme;
-  border: 2px solid $theme;
+  background-color: $designtheme;
+  border: 2px solid $designtheme;
   font-weight: bold;
   color: #fff;
 }
