@@ -27,11 +27,13 @@
       </b-navbar>
       <div class='app_header_content'>
         <div id="app_header_content_text">Python-Everything Board</div>
-        <p>The number one place to find python jobs across Web development, Data Science, Cyber Security</p>
+        <p>The number one place to find python jobs, competitions, and useful
+          resources to get to the next step</p>
         <br><br>
         <div class='subscribediv'>
           <b-form v-on:submit.prevent="subscribe" class="subscribeform">
-            <input ref='subscribeform' v-model="subscribeform.email" id="subscribeinput"/>
+            <input ref='subscribeform' v-model="subscribeform.email" id="subscribeinput"
+            placeholder="johndoe@anaconda.com"/>
             <button type='submit' id='subscribebtn'>Subscribe</button>
           </b-form>
         </div>
@@ -270,7 +272,6 @@ div {
 
 .app_footer {
   margin-top: 10px;
-  // height: 100px;
   background-color: #ddd;
   text-align: center;
 }
