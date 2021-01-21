@@ -3,7 +3,7 @@
     <div class="app_header" sticky>
       <b-navbar toggleable="lg" class='navbar' sticky>
         <b-navbar-brand href="/home" id="logo">
-          <span id="brandname1">overskil</span><span id="brandname2">led.io</span>
+          <span id="brandname1">overski</span><span id="brandname2">lled.io</span>
         </b-navbar-brand>
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
@@ -28,11 +28,11 @@
       <div class='app_header_content'>
         <div id="app_header_content_text">Python-Everything Board</div>
         <p>The number one place to find python jobs across Web development, Data Science, Cyber Security</p>
-        <br>
+        <br><br>
         <div class='subscribediv'>
           <b-form v-on:submit.prevent="subscribe" class="subscribeform">
             <input ref='subscribeform' v-model="subscribeform.email" id="subscribeinput"/>
-            <button type='submit'>Subscribe</button>
+            <button type='submit' id='subscribebtn'>Subscribe</button>
           </b-form>
         </div>
       </div>
@@ -111,7 +111,7 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
 $theme: #666;
-$designtheme: #7209b7;
+$designtheme: #369df1;
 $boxshadow: 0px 0px 30px 10px #ddd;
 $fontcolor: #555;
 
@@ -189,11 +189,11 @@ div {
   color: #fff;
   text-align: center;
   background-color: $theme;
-  height: 300px;
+  height: 400px;
 }
 
 #app_header_content_text {
-  font-size: 40px;
+  font-size: 50px;
 }
 
 .subscribediv {
@@ -212,6 +212,7 @@ div {
   height: 60px;
   padding-top: 5px;
   padding-left: 10px;
+  padding-right: 5px;
 }
 
 #subscribeinput {
@@ -219,11 +220,21 @@ div {
   height: 34px;
   vertical-align: middle;
   line-height: 60px;
-  padding-top: 10px;
+  padding-top: 6px;
   border: 1px solid #fff;
 }
 #subscribeinput:focus {
   outline: none;
+}
+
+#subscribebtn {
+  background-color: $designtheme;
+  border: 1px solid $designtheme;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px 1px #eee;
+  color: #fff;
+  font-size: 20px;
+  height: 45px;
 }
 
 .after_header {
