@@ -33,7 +33,7 @@ class Project(models.Model):
     applied = models.IntegerField(default=0)
 
     def __str__(self):
-        return (f"{self.project_header}, Applied: {self.applied}")
+        return self.project_header
 
 class Job(models.Model):
     job_header = models.CharField(max_length=200)
@@ -47,7 +47,7 @@ class Job(models.Model):
     applied = models.IntegerField(default=0)
 
     def __str__(self):
-        return (f"{self.job_header}, Applied: {self.applied}")
+        return self.job_header
 
 class Competition(models.Model):
     title = models.CharField(max_length=200)
@@ -75,4 +75,4 @@ class Subscribers(models.Model):
     date = models.DateField(auto_now=True)
 
     def __str__(self):
-        return (f"{self.email}, Subscribed: {self.date}")
+        return self.email

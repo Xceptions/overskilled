@@ -2,7 +2,9 @@
   <div id="app">
     <div class="app_header" sticky>
       <b-navbar toggleable="lg" class='navbar' sticky>
-        <b-navbar-brand href="/home" id="logo"><span>overskilled.io</span></b-navbar-brand>
+        <b-navbar-brand href="/home" id="logo">
+          <span id="brandname1">overskil</span><span id="brandname2">led.io</span>
+        </b-navbar-brand>
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
 
@@ -25,18 +27,21 @@
       </b-navbar>
       <div class='app_header_content'>
         <div id="app_header_content_text">Python-Everything Board</div>
-        <b>The number one place to find python jobs across Web development, Data Science, Cyber Security</b>
-        <b-form v-on:submit.prevent="subscribe" class="subscribeform">
-          <br>
-          <b-form-input ref='subscribeform' v-model="subscribeform.email" id="subscribeinput"></b-form-input>
-          <br>
-          <b-button type='submit' variant="primary">Subscribe For Email Alerts</b-button>
-        </b-form>
+        <p>The number one place to find python jobs across Web development, Data Science, Cyber Security</p>
+        <br>
+        <div class='subscribediv'>
+          <b-form v-on:submit.prevent="subscribe" class="subscribeform">
+            <input ref='subscribeform' v-model="subscribeform.email" id="subscribeinput"/>
+            <button type='submit'>Subscribe</button>
+          </b-form>
+        </div>
       </div>
-      <div id='post-div'>
-        <router-link to="/post">
-          <button id='post-btn' type='button'>Post a Job $0.00</button>
-        </router-link>
+      <div class="after_header">
+        <div id='post-div'>
+          <router-link to="/post">
+            <button id='post-btn' type='button'>Post a Job $0.00</button>
+          </router-link>
+        </div>
       </div>
       <router-view/>
     </div>
@@ -105,8 +110,10 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
-$theme: #7209b7;
+$theme: #666;
+$designtheme: #7209b7;
 $boxshadow: 0px 0px 30px 10px #ddd;
+$fontcolor: #555;
 
 body, html {
   margin: 0;
@@ -122,6 +129,14 @@ div {
   margin: 0;
 }
 
+#brandname {
+  color: $theme;
+}
+
+#brandname2 {
+  color: $designtheme;
+}
+
 .navbar {
   // box-shadow: $boxshadow;
   background-color: #fff;
@@ -130,7 +145,7 @@ div {
 
 #logo {
   color: $theme;
-  font-size: 42px;
+  font-size: 32px;
   text-shadow: 2px 2px #eef;
 }
 
@@ -164,8 +179,7 @@ div {
 }
 
 .header_links {
-  color: #333;
-  font-weight: bold;
+  color: $fontcolor;
   text-align: center;
 }
 
@@ -175,27 +189,51 @@ div {
   color: #fff;
   text-align: center;
   background-color: $theme;
+  height: 300px;
 }
 
 #app_header_content_text {
-  font-size: 60px;
+  font-size: 40px;
+}
+
+.subscribediv {
+  // background-color: #fff;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .subscribeform {
-  max-width: 70%;
+  // max-width: 70%;
   margin-left: auto;
   margin-right: auto;
-  // align-content: center;
-  // padding-left: 5px;
-  // background-color: red;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  background-color:#fff;
+  height: 60px;
+  padding-top: 5px;
+  padding-left: 10px;
 }
 
-// #subscribeinput {
-//   width: 100%;
-// }
+#subscribeinput {
+  width: 90%;
+  height: 34px;
+  vertical-align: middle;
+  line-height: 60px;
+  padding-top: 10px;
+  border: 1px solid #fff;
+}
+#subscribeinput:focus {
+  outline: none;
+}
+
+.after_header {
+  background-color: #f8f8f8;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
 #post-div {
-  margin-top: 20px;
+  // margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
 }
