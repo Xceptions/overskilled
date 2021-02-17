@@ -2,13 +2,12 @@
   <div class="home">
     <div id="home_nav">
       <div class="options_div">
-        <div><b-icon icon="view-stacked" class="options_icon"></b-icon></div>
-        <div><router-link to="/home/competitions">Competitions</router-link></div>
+        <!-- <div><b-icon icon="view-stacked" class="options_icon"></b-icon></div> -->
+        <div><router-link to="/home/competitions">Competitions</router-link> |</div>
       </div>
       <div class="options_div">
-        <b-icon icon="bullseye" class="options_icon"></b-icon>
-        <!-- <br> -->
-        <div><router-link to="/home">Jobs</router-link></div>
+        <!-- <b-icon icon="bullseye" class="options_icon"></b-icon> -->
+        <div>| <router-link to="/home">Jobs</router-link></div>
       </div>
     </div>
     <router-view/>
